@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RAIZ Interiors
+
+> Premium Interior Design Studio Website
+
+A modern, sophisticated website for RAIZ Interiors - a design studio dedicated to creating meaningful spaces that tell your story.
+
+## Features
+
+- **Modern Stack**: Next.js 14+ with App Router, TypeScript, Tailwind CSS
+- **Elegant Design**: Minimalist aesthetic with sophisticated typography
+- **Fully Responsive**: Optimized for all device sizes
+- **Animations**: Smooth transitions with Framer Motion
+- **Component Library**: Shadcn/ui + Radix UI
+- **Database Ready**: Prisma ORM with PostgreSQL schema
+- **Form Validation**: React Hook Form + Zod
+- **GDPR Compliant**: Cookie consent banner
+- **WhatsApp Integration**: Floating chat widget
+
+## Pages
+
+- **Home** - Hero, featured projects, services preview
+- **Projects** - Grid layout with filters + individual project pages
+- **Services** - Service offerings + process diagram
+- **About** - Studio story, values, Instagram feed
+- **Contact** - Contact form with validation
+
+## Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Framework | Next.js 14+ |
+| Language | TypeScript |
+| Styling | Tailwind CSS |
+| Components | Shadcn/ui, Radix UI |
+| Animations | Framer Motion |
+| Database | PostgreSQL + Prisma |
+| Validation | Zod |
+| Forms | React Hook Form |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Install dependencies
+pnpm install
+
+# Run development server
 pnpm dev
-# or
-bun dev
+
+# Build for production
+pnpm build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env` file with:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+DATABASE_URL="postgresql://..."
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your-secret"
+```
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+Ready for deployment on Vercel:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/WBianchi/raiz-interiors)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Developed with care for RAIZ Interiors.
