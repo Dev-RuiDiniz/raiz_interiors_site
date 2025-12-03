@@ -45,8 +45,6 @@ export default function Home() {
     <>
       <Hero
         imageUrl="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&q=80"
-        title="It's not about interior design itself"
-        subtitle="It's about you, your story, your connections..."
       />
       <IntroSection />
       <FeaturedProjects projects={featuredProjects} />
