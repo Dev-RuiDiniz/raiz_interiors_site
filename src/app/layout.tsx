@@ -1,10 +1,8 @@
 import type { Metadata } from "next"
 import "./globals.css"
 import { cormorant, inter, playfair } from "@/lib/fonts"
-import { Header } from "@/components/layout/header"
-import { Footer } from "@/components/layout/footer"
-import { FloatingChat } from "@/components/ui/floating-chat"
-import { GDPRBanner } from "@/components/ui/gdpr-banner"
+import { ThemeProvider } from "@/components/providers/theme-provider"
+import { SessionProvider } from "@/components/providers/session-provider"
 
 export const metadata: Metadata = {
   title: "RAIZ Interiors | Interior Design Studio",
@@ -25,15 +23,20 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${cormorant.variable} ${inter.variable} ${playfair.variable} font-inter antialiased`}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <FloatingChat />
-        <GDPRBanner />
+        <SessionProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </SessionProvider>
       </body>
     </html>
   )
