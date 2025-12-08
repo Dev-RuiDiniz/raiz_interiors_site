@@ -1,25 +1,49 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
+
+// Slideshow images para o Hero
+const heroImages = [
+  'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&q=80',
+  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80',
+  'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80',
+  'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&q=80',
+  'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80',
+  'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1920&q=80',
+]
 
 interface HeroProps {
   videoUrl?: string
   imageUrl?: string
   title?: string
   subtitle?: string
+  slideshow?: boolean
 }
 
 export function Hero({
   videoUrl,
-  imageUrl = 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&q=80',
+  imageUrl = heroImages[0],
   title = "Creating spaces that tell your story",
   subtitle = "Architecture • Interior Design • Decoration",
+  slideshow = true,
 }: HeroProps) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isLoaded, setIsLoaded] = useState(false)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  // Slideshow effect
+  useEffect(() => {
+    if (!slideshow || videoUrl) return
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length)
+    }, 5000) // Troca a cada 5 segundos
+
+    return () => clearInterval(interval)
+  }, [slideshow, videoUrl])
 
   useEffect(() => {
     // Se não tiver vídeo, considerar carregado após um delay
@@ -55,6 +79,26 @@ export function Hero({
           >
             <source src={videoUrl} type="video/mp4" />
           </video>
+        ) : slideshow ? (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImageIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: 'easeInOut' }}
+              className="absolute inset-0"
+            >
+              <Image
+                src={heroImages[currentImageIndex]}
+                alt="RAIZ Interiors"
+                fill
+                priority
+                className="object-cover"
+                onLoad={() => setIsLoaded(true)}
+              />
+            </motion.div>
+          </AnimatePresence>
         ) : (
           <Image
             src={imageUrl}
@@ -66,8 +110,8 @@ export function Hero({
           />
         )}
 
-        {/* Overlay Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
+        {/* Overlay Gradient - Escuro no topo para destacar o menu */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/50" />
       </div>
 
       {/* Content */}

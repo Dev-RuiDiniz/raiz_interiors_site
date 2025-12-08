@@ -165,7 +165,7 @@ export default function ProjectsPage() {
       {/* Projects Grid */}
       <section className="py-16 lg:py-24 bg-white">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {allProjects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -202,7 +202,7 @@ function ProjectCard({ project }: ProjectCardProps) {
     <Link
       href={isComingSoon ? '#' : `/projects/${project.slug}`}
       className={cn(
-        'group block relative overflow-hidden bg-stone-200 aspect-[4/3]',
+        'group block relative overflow-hidden bg-stone-200 aspect-[4/3.5]',
         isComingSoon && 'cursor-default'
       )}
     >
