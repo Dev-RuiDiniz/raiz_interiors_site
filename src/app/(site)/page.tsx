@@ -43,9 +43,7 @@ const featuredProjects = [
 export default function Home() {
   return (
     <>
-      <Hero
-        imageUrl="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&q=80"
-      />
+      <Hero />
       <IntroSection />
       <FeaturedProjects projects={featuredProjects} />
       <ServicesPreview />
