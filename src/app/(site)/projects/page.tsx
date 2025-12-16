@@ -120,59 +120,35 @@ const categories = [
 export default function ProjectsPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-stone-50">
-        <div className="container mx-auto px-6 lg:px-12">
+      {/* Hero Section - Só frase */}
+      <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 bg-[#E3DFDD]">
+        <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="font-cormorant text-5xl lg:text-7xl font-light text-stone-900 leading-tight">
-              Our <span className="italic">Projects</span>
-            </h1>
-            <p className="mt-6 font-inter text-base text-stone-600 leading-relaxed max-w-xl">
-              A curated collection of our work, each project reflecting our commitment 
-              to creating meaningful spaces that tell unique stories.
+            <p className="font-cormorant text-xl sm:text-2xl lg:text-3xl font-light text-stone-700 leading-relaxed">
+              A <span className="uppercase">curated</span> selection of our work, each project reflecting our commitment to create{' '}
+              <span className="uppercase">meaningful</span> spaces that tell unique{' '}
+              <span className="uppercase">stories</span>.
             </p>
-          </motion.div>
-
-          {/* Category Filter */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-12 flex flex-wrap gap-4"
-          >
-            {categories.map((cat) => (
-              <button
-                key={cat.value}
-                className={cn(
-                  'px-5 py-2.5 font-inter text-xs tracking-[0.15em] uppercase transition-all duration-300 border',
-                  cat.value === 'all'
-                    ? 'bg-stone-900 text-white border-stone-900'
-                    : 'bg-transparent text-stone-600 border-stone-300 hover:border-stone-900 hover:text-stone-900'
-                )}
-              >
-                {cat.label}
-              </button>
-            ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Projects Grid */}
-      <section className="py-16 lg:py-24 bg-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      {/* Projects Grid - 3 colunas, menos espaçamento, até limites do ecrã */}
+      <section className="py-8 lg:py-12 bg-[#E3DFDD]">
+        <div className="px-2 lg:px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-3">
             {allProjects.map((project, index) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
+                transition={{ duration: 0.5, delay: index * 0.03 }}
               >
                 <ProjectCard project={project} />
               </motion.div>
@@ -192,17 +168,13 @@ function ProjectCard({ project }: ProjectCardProps) {
   const isComingSoon = project.status === 'COMING_SOON'
   const isWorkInProgress = project.status === 'WORK_IN_PROGRESS'
 
-  const statusLabel = isComingSoon 
-    ? 'Coming Soon' 
-    : isWorkInProgress 
-      ? 'Work in Progress' 
-      : null
+  const statusLabel = isWorkInProgress ? 'work in progress' : null
 
   return (
     <Link
       href={isComingSoon ? '#' : `/projects/${project.slug}`}
       className={cn(
-        'group block relative overflow-hidden bg-stone-200 aspect-[4/3.5]',
+        'group block relative overflow-hidden bg-stone-300 aspect-[4/3]',
         isComingSoon && 'cursor-default'
       )}
     >
@@ -222,36 +194,28 @@ function ProjectCard({ project }: ProjectCardProps) {
             'absolute inset-0 transition-opacity duration-500',
             isComingSoon
               ? 'bg-black/50'
-              : 'bg-gradient-to-t from-black/70 via-black/20 to-transparent group-hover:from-black/80'
+              : 'bg-black/30 group-hover:bg-black/40'
           )}
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col justify-end h-full p-6 lg:p-8">
+      {/* Content - Centrado na imagem */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full p-4 text-center">
+        <h3 className="font-cormorant text-xl sm:text-2xl lg:text-3xl font-light text-white leading-tight uppercase tracking-wide">
+          {project.title.split(' ').slice(0, -1).join(' ')}
+        </h3>
+        <p className="font-cormorant text-lg sm:text-xl lg:text-2xl italic text-white/90 mt-1">
+          {project.title.split(' ').slice(-1).join(' ') === 'Troia' || project.title.split(' ').slice(-1).join(' ') === 'Comporta' 
+            ? `in ${project.title.split(' ').slice(-1).join(' ')}`
+            : project.subtitle}
+        </p>
+        
         {/* Status Badge */}
         {statusLabel && (
-          <span className="absolute top-6 left-6 lg:top-8 lg:left-8 font-inter text-[10px] tracking-[0.2em] uppercase text-white/90 bg-white/20 backdrop-blur-sm px-3 py-1.5">
+          <span className="mt-3 font-inter text-[9px] tracking-[0.15em] uppercase text-white/70">
             {statusLabel}
           </span>
         )}
-
-        {/* Category Badge */}
-        <span className="absolute top-6 right-6 lg:top-8 lg:right-8 font-inter text-[10px] tracking-[0.15em] uppercase text-white/70">
-          {project.category}
-        </span>
-
-        <div className="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-2">
-          <h3 className="font-cormorant text-2xl lg:text-3xl font-light text-white leading-tight">
-            {project.title}
-          </h3>
-          <p className="mt-1 font-inter text-sm text-white/70">
-            {project.subtitle}
-          </p>
-          <p className="mt-3 font-inter text-xs tracking-[0.15em] uppercase text-white/50">
-            {project.location}
-          </p>
-        </div>
       </div>
     </Link>
   )

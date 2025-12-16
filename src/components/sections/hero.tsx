@@ -3,51 +3,33 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
+import Link from 'next/link'
 
-// Slides com imagem e conteúdo único
+// Slides com imagem e conteúdo único - Frases da cliente
 const heroSlides = [
   {
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1920&q=80',
-    title: ['Creating', 'spaces that tell', 'your story'],
+    image: '/beach-house-troia.jpg',
+    title: ["It's not about", 'INTERIOR DESIGN', 'itself'],
+    subtitle: "It's about YOU, your STORY, your CONNECTIONS...",
+    link: '/projects',
+  },
+  {
+    image: '/comporta-summer-house.jpg',
+    title: ['Where', 'DESIGN', 'meets your SOUL'],
     subtitle: 'Architecture • Interior Design • Decoration',
-    cta: 'Explore Our Work',
-    ctaLink: '/projects',
+    link: '/projects',
   },
   {
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80',
-    title: ['Timeless', 'elegance in', 'every detail'],
+    image: '/contemporary-city-house.jpg',
+    title: ['CRAFTING', 'SPACES', 'with PURPOSE'],
     subtitle: 'Bespoke Interiors • Curated Design',
-    cta: 'View Projects',
-    ctaLink: '/projects',
+    link: '/projects',
   },
   {
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&q=80',
-    title: ['Where', 'design meets', 'emotion'],
+    image: '/elegant-duplex-braga.jpg',
+    title: ['BESPOKE', 'SPACES', 'that tell your story'],
     subtitle: 'Residential • Commercial • Hospitality',
-    cta: 'Our Services',
-    ctaLink: '/services',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1920&q=80',
-    title: ['Crafting', 'spaces with', 'purpose'],
-    subtitle: 'Consultancy • Staging • Decoration',
-    cta: 'Get In Touch',
-    ctaLink: '/contact',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80',
-    title: ['Modern', 'living', 'redefined'],
-    subtitle: 'Contemporary Design • Natural Materials',
-    cta: 'Discover More',
-    ctaLink: '/about',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=1920&q=80',
-    title: ['Your', 'vision', 'realized'],
-    subtitle: 'Full Service Design Studio',
-    cta: 'Start Your Project',
-    ctaLink: '/contact',
+    link: '/projects',
   },
 ]
 
@@ -86,13 +68,6 @@ export function Hero({
   }, [videoUrl])
 
   const currentSlide = heroSlides[currentIndex]
-
-  const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth',
-    })
-  }
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -158,105 +133,64 @@ export function Hero({
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="max-w-5xl"
           >
-            {/* Decorative Line */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="w-16 h-px bg-white/50 mx-auto mb-8"
-            />
+            {/* Main Title - A frase inteira é clicável */}
+            <Link href={currentSlide.link} className="block group">
+              <h1 className="font-cormorant text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.2] tracking-wide">
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="block text-white/80"
+                >
+                  {currentSlide.title[0]}
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="block italic mt-1"
+                >
+                  {currentSlide.title[1]}
+                </motion.span>
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="block text-white/80 mt-1"
+                >
+                  {currentSlide.title[2]}
+                </motion.span>
+              </h1>
 
-            {/* Main Title - Artistic Typography */}
-            <h1 className="font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light text-white leading-[1.1] tracking-wide">
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
+              {/* Subtitle */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="block"
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="mt-8 font-inter text-[10px] sm:text-xs tracking-[0.25em] uppercase text-white/60 group-hover:text-white/80 transition-colors"
               >
-                {currentSlide.title[0]}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="block italic font-cormorant mt-2"
-              >
-                {currentSlide.title[1]}
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="block mt-2"
-              >
-                {currentSlide.title[2].split(' ')[0]}{' '}
-                <em className="font-cormorant">{currentSlide.title[2].split(' ').slice(1).join(' ') || currentSlide.title[2]}</em>
-              </motion.span>
-            </h1>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-10 font-inter text-xs sm:text-sm tracking-[0.3em] uppercase text-white/70"
-            >
-              {currentSlide.subtitle}
-            </motion.p>
-
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mt-12"
-            >
-              <a
-                href={currentSlide.ctaLink}
-                className="inline-flex items-center gap-3 px-8 py-4 border border-white/30 text-white font-inter text-xs tracking-[0.2em] uppercase hover:bg-white hover:text-stone-900 transition-all duration-300"
-              >
-                {currentSlide.cta}
-              </a>
-            </motion.div>
+                {currentSlide.subtitle}
+              </motion.p>
+            </Link>
           </motion.div>
         </AnimatePresence>
 
-        {/* Slide Indicators */}
-        <div className="absolute bottom-28 left-1/2 -translate-x-1/2 flex gap-2">
+        {/* Slide Indicators - Bolinhas */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-3">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? 'bg-white w-8'
-                  : 'bg-white/40 hover:bg-white/60'
+                  ? 'bg-white'
+                  : 'bg-white/30 hover:bg-white/50'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.8 }}
-        onClick={scrollToContent}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors cursor-pointer"
-        aria-label="Scroll down"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col items-center gap-2"
-        >
-          <span className="font-inter text-[10px] tracking-[0.2em] uppercase">Scroll</span>
-          <ChevronDown size={24} strokeWidth={1} />
-        </motion.div>
-      </motion.button>
     </section>
   )
 }
