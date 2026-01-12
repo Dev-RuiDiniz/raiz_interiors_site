@@ -5,30 +5,30 @@ import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
-// Slides com imagem e conteúdo único - Frases da cliente
+// Slides com imagem e conteúdo único - Frases em 2 linhas
 const heroSlides = [
   {
     image: '/beach-house-troia.jpg',
-    title: ["It's not about", 'INTERIOR DESIGN', 'itself'],
-    subtitle: "It's about YOU, your STORY, your CONNECTIONS...",
+    line1: "It's not about INTERIOR DESIGN itself",
+    line2: "It's about YOU, your STORY, your CONNECTIONS...",
     link: '/projects',
   },
   {
     image: '/comporta-summer-house.jpg',
-    title: ['Where', 'DESIGN', 'meets your SOUL'],
-    subtitle: 'Architecture • Interior Design • Decoration',
+    line1: 'CRAFTING SPACES',
+    line2: 'with PURPOSE',
     link: '/projects',
   },
   {
     image: '/contemporary-city-house.jpg',
-    title: ['CRAFTING', 'SPACES', 'with PURPOSE'],
-    subtitle: 'Bespoke Interiors • Curated Design',
+    line1: 'Where DESIGN',
+    line2: 'meets your SOUL',
     link: '/projects',
   },
   {
     image: '/elegant-duplex-braga.jpg',
-    title: ['BESPOKE', 'SPACES', 'that tell your story'],
-    subtitle: 'Residential • Commercial • Hospitality',
+    line1: 'BESPOKE SPACES',
+    line2: 'that tell your story',
     link: '/projects',
   },
 ]
@@ -96,7 +96,7 @@ export function Hero({
               >
                 <Image
                   src={slide.image}
-                  alt={`RAIZ Interiors - ${slide.title.join(' ')}`}
+                  alt={`RAIZ Interiors - ${slide.line1}`}
                   fill
                   priority={index === 0}
                   className="object-cover scale-105"
@@ -133,44 +133,26 @@ export function Hero({
             transition={{ duration: 0.8, ease: 'easeOut' }}
             className="max-w-5xl"
           >
-            {/* Main Title - A frase inteira é clicável */}
+            {/* Main Title - 2 linhas, tamanho menor */}
             <Link href={currentSlide.link} className="block group">
-              <h1 className="font-cormorant text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.2] tracking-wide">
+              <h1 className="font-cormorant text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-white leading-[1.3] tracking-wide">
                 <motion.span
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="block text-white/80"
+                  className="block"
                 >
-                  {currentSlide.title[0]}
+                  {currentSlide.line1}
                 </motion.span>
                 <motion.span
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="block italic mt-1"
+                  transition={{ duration: 0.6, delay: 0.25 }}
+                  className="block italic text-white/90 mt-1"
                 >
-                  {currentSlide.title[1]}
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.3 }}
-                  className="block text-white/80 mt-1"
-                >
-                  {currentSlide.title[2]}
+                  {currentSlide.line2}
                 </motion.span>
               </h1>
-
-              {/* Subtitle */}
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="mt-8 font-inter text-[10px] sm:text-xs tracking-[0.25em] uppercase text-white/60 group-hover:text-white/80 transition-colors"
-              >
-                {currentSlide.subtitle}
-              </motion.p>
             </Link>
           </motion.div>
         </AnimatePresence>

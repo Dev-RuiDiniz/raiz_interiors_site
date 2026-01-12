@@ -74,16 +74,16 @@ const processSteps = [
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero Section - Só frase */}
-      <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 bg-[#E3DFDD]">
+      {/* Hero Section - Frase minimalista */}
+      <section className="relative pt-32 pb-8 lg:pt-40 lg:pb-12 bg-[#E3DFDD]">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-3xl mx-auto text-center"
           >
-            <p className="font-cormorant text-xl sm:text-2xl lg:text-3xl font-light text-stone-700 leading-relaxed">
+            <p className="font-cormorant text-base sm:text-lg lg:text-xl font-light text-stone-600 leading-relaxed">
               We are a <span className="uppercase">design studio</span> dedicated to delivering a{' '}
               <span className="uppercase">bespoke</span> start-to-finish design service.
             </p>
@@ -131,7 +131,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Process Section - Pontinhos */}
+      {/* Process Section - Com numeração e linhas conectoras */}
       <section className="py-16 lg:py-24 bg-[#CFCAC7]">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
@@ -141,31 +141,39 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12 lg:mb-16"
           >
-            <h2 className="font-cormorant text-3xl lg:text-4xl font-light text-stone-800">
+            <h2 className="font-cormorant text-2xl lg:text-3xl font-light text-stone-800">
               Our <span className="italic">Process</span>
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-6">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center"
-              >
-                {/* Pontinho */}
-                <div className="w-3 h-3 rounded-full bg-stone-600 mx-auto mb-4" />
-                <h4 className="font-cormorant text-lg text-stone-800">
-                  {step.title}
-                </h4>
-                <p className="mt-2 font-inter text-xs text-stone-600 leading-relaxed">
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
+          {/* Process Steps com linhas conectoras */}
+          <div className="relative">
+            {/* Linha conectora horizontal (desktop) */}
+            <div className="hidden lg:block absolute top-6 left-[10%] right-[10%] h-px bg-stone-500/40" />
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4">
+              {processSteps.map((step, index) => (
+                <motion.div
+                  key={step.number}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="text-center relative"
+                >
+                  {/* Número */}
+                  <div className="relative z-10 w-12 h-12 rounded-full bg-[#CFCAC7] border border-stone-500/40 flex items-center justify-center mx-auto mb-4">
+                    <span className="font-cormorant text-lg text-stone-700">{step.number}</span>
+                  </div>
+                  <h4 className="font-cormorant text-base lg:text-lg text-stone-800">
+                    {step.title}
+                  </h4>
+                  <p className="mt-2 font-inter text-[10px] lg:text-xs text-stone-600 leading-relaxed max-w-[180px] mx-auto">
+                    {step.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

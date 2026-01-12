@@ -5,131 +5,123 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
-// Dados mockados (virão do banco depois)
+// Projetos na ordem exata definida pela cliente
 const allProjects = [
   {
     id: '1',
-    slug: 'beach-house-troia',
-    title: 'Beach House in Troia',
-    subtitle: 'Pestana Troia Eco Resort',
-    location: 'Troia, Portugal',
-    category: 'RESIDENTIAL',
-    status: 'WORK_IN_PROGRESS',
-    coverImage: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
-  },
-  {
-    id: '2',
-    slug: 'summer-house-comporta',
-    title: 'Summer House in Comporta',
-    subtitle: 'Comporta Retreat',
-    location: 'Comporta, Portugal',
-    category: 'RESIDENTIAL',
-    status: 'PUBLISHED',
-    coverImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-  },
-  {
-    id: '3',
-    slug: 'contemporary-city-house',
-    title: 'Contemporary City House',
-    subtitle: 'Urban Living',
-    location: 'Almada, Portugal',
-    category: 'RESIDENTIAL',
-    status: 'PUBLISHED',
-    coverImage: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
-  },
-  {
-    id: '4',
-    slug: 'elegant-timeless-duplex',
-    title: 'Elegant & Timeless Duplex',
-    subtitle: 'Classic Refinement',
-    location: 'Braga, Portugal',
-    category: 'RESIDENTIAL',
-    status: 'PUBLISHED',
-    coverImage: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80',
-  },
-  {
-    id: '5',
-    slug: 'gift-store-almada',
-    title: 'Gift Store',
-    subtitle: 'Retail Experience',
-    location: 'Almada, Portugal',
-    category: 'RETAIL',
-    status: 'PUBLISHED',
-    coverImage: 'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=800&q=80',
-  },
-  {
-    id: '6',
-    slug: 'weekend-family-house',
-    title: 'Weekend Family House',
-    subtitle: 'Family Retreat',
-    location: 'Aroeira, Portugal',
-    category: 'RESIDENTIAL',
-    status: 'PUBLISHED',
-    coverImage: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80',
-  },
-  {
-    id: '7',
-    slug: 'beach-house-troia-ii',
-    title: 'Beach House in Troia II',
-    subtitle: 'Pestana Troia Eco Resort',
-    location: 'Troia, Portugal',
-    category: 'RESIDENTIAL',
-    status: 'COMING_SOON',
-    coverImage: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80',
-  },
-  {
-    id: '8',
-    slug: 'young-soul-apartment',
-    title: 'Young Soul City Apartment',
-    subtitle: 'Mirear Terraces',
-    location: 'Lisboa, Portugal',
-    category: 'RESIDENTIAL',
-    status: 'COMING_SOON',
-    coverImage: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80',
-  },
-  {
-    id: '9',
-    slug: 'residential-building-principe-real',
-    title: 'Residential Building',
-    subtitle: 'Príncipe Real',
-    location: 'Lisboa, Portugal',
+    slug: 'pombaline-restoration-principe-real',
+    title: 'POMBALINE RESTORATION',
+    subtitle: 'in Príncipe Real',
+    location: 'LISBOA',
     category: 'RESIDENTIAL',
     status: 'WORK_IN_PROGRESS',
     coverImage: 'https://images.unsplash.com/photo-1600585154363-67eb9e2e2099?w=800&q=80',
   },
   {
-    id: '10',
-    slug: 'rural-retreat-gardunha',
-    title: 'Rural Retreat',
-    subtitle: 'Serra da Gardunha',
-    location: 'Serra da Gardunha, Portugal',
+    id: '2',
+    slug: 'beach-house-troia',
+    title: 'BEACH HOUSE',
+    subtitle: 'in Troia',
+    location: 'PESTANA TROIA ECO RESORT',
+    category: 'RESIDENTIAL',
+    status: 'WORK_IN_PROGRESS',
+    coverImage: '/beach-house-troia.jpg',
+  },
+  {
+    id: '3',
+    slug: 'summer-house-comporta',
+    title: 'SUMMER HOUSE',
+    subtitle: 'in Comporta',
+    location: 'COMPORTA RETREAT',
+    category: 'RESIDENTIAL',
+    status: 'PUBLISHED',
+    coverImage: '/comporta-summer-house.jpg',
+  },
+  {
+    id: '4',
+    slug: 'contemporary-city-house',
+    title: 'CONTEMPORARY CITY HOUSE',
+    subtitle: '',
+    location: 'ALMADA',
+    category: 'RESIDENTIAL',
+    status: 'PUBLISHED',
+    coverImage: '/contemporary-city-house.jpg',
+  },
+  {
+    id: '5',
+    slug: 'elegant-timeless-duplex',
+    title: 'ELEGANT & TIMELESS DUPLEX',
+    subtitle: '',
+    location: 'BRAGA',
+    category: 'RESIDENTIAL',
+    status: 'PUBLISHED',
+    coverImage: '/elegant-duplex-braga.jpg',
+  },
+  {
+    id: '6',
+    slug: 'store-restauration-atelier',
+    title: 'STORE & RESTAURATION ATELIER',
+    subtitle: '',
+    location: 'ALMADA',
+    category: 'COMMERCIAL',
+    status: 'PUBLISHED',
+    coverImage: 'https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=800&q=80',
+  },
+  {
+    id: '7',
+    slug: 'rural-retreat',
+    title: 'RURAL RETREAT',
+    subtitle: '',
+    location: 'SERRA DA LOUSÃ',
     category: 'RESIDENTIAL',
     status: 'WORK_IN_PROGRESS',
     coverImage: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800&q=80',
   },
-]
-
-const categories = [
-  { label: 'All', value: 'all' },
-  { label: 'Residential', value: 'RESIDENTIAL' },
-  { label: 'Commercial', value: 'COMMERCIAL' },
-  { label: 'Retail', value: 'RETAIL' },
-  { label: 'Hospitality', value: 'HOSPITALITY' },
+  {
+    id: '8',
+    slug: 'weekend-family-house',
+    title: 'WEEKEND FAMILY HOUSE',
+    subtitle: '',
+    location: 'AROEIRA',
+    category: 'RESIDENTIAL',
+    status: 'COMING_SOON',
+    coverImage: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80',
+  },
+  {
+    id: '9',
+    slug: 'beach-house-troia-ii',
+    title: 'BEACH HOUSE',
+    subtitle: 'in Troia II',
+    location: 'PESTANA TROIA ECO RESORT',
+    category: 'RESIDENTIAL',
+    status: 'COMING_SOON',
+    coverImage: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80',
+  },
+  {
+    id: '10',
+    slug: 'young-soul-city-apartment',
+    title: 'YOUNG SOUL CITY APARTMENT',
+    subtitle: '',
+    location: 'MIREAR TERRACES',
+    category: 'RESIDENTIAL',
+    status: 'COMING_SOON',
+    coverImage: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80',
+  },
 ]
 
 export default function ProjectsPage() {
   return (
     <>
-      {/* Hero Section - Só frase */}
-      <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 bg-[#E3DFDD]">
+      {/* Hero Section - Frase minimalista */}
+      <section className="relative pt-32 pb-8 lg:pt-40 lg:pb-12 bg-[#E3DFDD]">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            className="max-w-3xl mx-auto text-center"
           >
-            <p className="font-cormorant text-xl sm:text-2xl lg:text-3xl font-light text-stone-700 leading-relaxed">
+            <p className="font-cormorant text-base sm:text-lg lg:text-xl font-light text-stone-600 leading-relaxed">
               A <span className="uppercase">curated</span> selection of our work, each project reflecting our commitment to create{' '}
               <span className="uppercase">meaningful</span> spaces that tell unique{' '}
               <span className="uppercase">stories</span>.
@@ -168,7 +160,11 @@ function ProjectCard({ project }: ProjectCardProps) {
   const isComingSoon = project.status === 'COMING_SOON'
   const isWorkInProgress = project.status === 'WORK_IN_PROGRESS'
 
-  const statusLabel = isWorkInProgress ? 'work in progress' : null
+  const statusLabel = isComingSoon 
+    ? 'Coming soon' 
+    : isWorkInProgress 
+      ? 'work in progress' 
+      : null
 
   return (
     <Link
@@ -194,25 +190,28 @@ function ProjectCard({ project }: ProjectCardProps) {
             'absolute inset-0 transition-opacity duration-500',
             isComingSoon
               ? 'bg-black/50'
-              : 'bg-black/30 group-hover:bg-black/40'
+              : 'bg-black/25 group-hover:bg-black/35'
           )}
         />
       </div>
 
       {/* Content - Centrado na imagem */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full p-4 text-center">
-        <h3 className="font-cormorant text-xl sm:text-2xl lg:text-3xl font-light text-white leading-tight uppercase tracking-wide">
-          {project.title.split(' ').slice(0, -1).join(' ')}
+        <h3 className="font-cormorant text-lg sm:text-xl lg:text-2xl font-light text-white leading-tight tracking-wide">
+          {project.title}
         </h3>
-        <p className="font-cormorant text-lg sm:text-xl lg:text-2xl italic text-white/90 mt-1">
-          {project.title.split(' ').slice(-1).join(' ') === 'Troia' || project.title.split(' ').slice(-1).join(' ') === 'Comporta' 
-            ? `in ${project.title.split(' ').slice(-1).join(' ')}`
-            : project.subtitle}
+        {project.subtitle && (
+          <p className="font-cormorant text-base sm:text-lg lg:text-xl italic text-white/90 mt-0.5">
+            {project.subtitle}
+          </p>
+        )}
+        <p className="font-inter text-[9px] sm:text-[10px] tracking-[0.15em] uppercase text-white/70 mt-2">
+          {project.location}
         </p>
         
         {/* Status Badge */}
         {statusLabel && (
-          <span className="mt-3 font-inter text-[9px] tracking-[0.15em] uppercase text-white/70">
+          <span className="mt-2 font-inter text-[8px] sm:text-[9px] tracking-[0.12em] uppercase text-white/60">
             {statusLabel}
           </span>
         )}
