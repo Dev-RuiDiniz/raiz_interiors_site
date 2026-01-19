@@ -22,9 +22,9 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-stone-950 text-white">
+    <footer className="bg-[#B4ADA8] text-stone-800">
       {/* Newsletter Section */}
-      <div className="border-b border-white/10">
+      <div className="border-b border-stone-600/20">
         <div className="container mx-auto px-6 lg:px-12 py-16 lg:py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -33,10 +33,10 @@ export function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="font-cormorant text-3xl lg:text-4xl font-light mb-4">
+              <h3 className="font-cormorant text-2xl lg:text-3xl font-light mb-4 text-stone-800">
                 Stay <span className="italic">Inspired</span>
               </h3>
-              <p className="font-inter text-sm text-white/60 max-w-md">
+              <p className="font-inter text-sm text-stone-600 max-w-md">
                 Subscribe to our newsletter for exclusive insights, design inspiration, 
                 and updates on our latest projects.
               </p>
@@ -53,11 +53,11 @@ export function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 bg-transparent border border-white/20 px-6 py-4 font-inter text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors"
+                className="flex-1 bg-white/30 border border-stone-600/30 px-6 py-4 font-inter text-sm text-stone-800 placeholder:text-stone-500 focus:outline-none focus:border-stone-600/50 transition-colors"
               />
               <button
                 type="submit"
-                className="px-8 py-4 bg-white text-stone-900 font-inter text-xs tracking-[0.2em] uppercase hover:bg-white/90 transition-colors"
+                className="px-8 py-4 bg-stone-700 text-white font-inter text-xs tracking-[0.2em] uppercase hover:bg-stone-600 transition-colors"
               >
                 Subscribe
               </button>
@@ -78,12 +78,12 @@ export function Footer() {
             className="lg:col-span-1"
           >
             <Link href="/" className="inline-block mb-6">
-              <span className="font-cormorant text-2xl tracking-[0.2em]">RAIZ</span>
-              <span className="block font-inter text-[10px] tracking-[0.3em] text-white/50 mt-1">
+              <span className="font-cormorant text-2xl tracking-[0.2em] text-stone-800">RAIZ</span>
+              <span className="block font-inter text-[10px] tracking-[0.3em] text-stone-600 mt-1">
                 INTERIORS & LIVING STUDIO
               </span>
             </Link>
-            <p className="font-inter text-sm text-white/50 leading-relaxed">
+            <p className="font-inter text-sm text-stone-600 leading-relaxed">
               Creating meaningful spaces that tell your story through thoughtful design 
               and attention to detail.
             </p>
@@ -96,7 +96,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="font-inter text-xs tracking-[0.2em] uppercase mb-6">
+            <h4 className="font-inter text-xs tracking-[0.2em] uppercase mb-6 text-stone-700">
               Navigation
             </h4>
             <nav className="flex flex-col gap-4">
@@ -104,7 +104,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-inter text-sm text-white/50 hover:text-white transition-colors"
+                  className="font-inter text-sm text-stone-600 hover:text-stone-800 transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -119,25 +119,25 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="font-inter text-xs tracking-[0.2em] uppercase mb-6">
+            <h4 className="font-inter text-xs tracking-[0.2em] uppercase mb-6 text-stone-700">
               Contact
             </h4>
             <div className="flex flex-col gap-4">
               <a
                 href="mailto:hello@raiz-interiors.com"
-                className="flex items-center gap-3 font-inter text-sm text-white/50 hover:text-white transition-colors"
+                className="flex items-center gap-3 font-inter text-sm text-stone-600 hover:text-stone-800 transition-colors"
               >
                 <Mail size={16} />
                 hello@raiz-interiors.com
               </a>
               <a
                 href="tel:+351912345678"
-                className="flex items-center gap-3 font-inter text-sm text-white/50 hover:text-white transition-colors"
+                className="flex items-center gap-3 font-inter text-sm text-stone-600 hover:text-stone-800 transition-colors"
               >
                 <Phone size={16} />
                 +351 912 345 678
               </a>
-              <div className="flex items-start gap-3 font-inter text-sm text-white/50">
+              <div className="flex items-start gap-3 font-inter text-sm text-stone-600">
                 <MapPin size={16} className="mt-0.5 shrink-0" />
                 <span>Lisbon, Portugal</span>
               </div>
@@ -151,7 +151,7 @@ export function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="font-inter text-xs tracking-[0.2em] uppercase mb-6">
+            <h4 className="font-inter text-xs tracking-[0.2em] uppercase mb-6 text-stone-700">
               Follow Us
             </h4>
             <div className="flex gap-4">
@@ -161,7 +161,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 border border-white/20 flex items-center justify-center text-white/50 hover:text-white hover:border-white/50 transition-all"
+                  className="w-10 h-10 border border-stone-600/30 flex items-center justify-center text-stone-600 hover:text-stone-800 hover:border-stone-600/50 transition-all"
                   aria-label={social.label}
                 >
                   <social.icon size={16} />
@@ -173,22 +173,22 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-stone-600/20">
         <div className="container mx-auto px-6 lg:px-12 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="font-inter text-xs text-white/40">
+            <p className="font-inter text-xs text-stone-600">
               © {currentYear} RAIZ Interiors. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link
                 href="/privacy"
-                className="font-inter text-xs text-white/40 hover:text-white/60 transition-colors"
+                className="font-inter text-xs text-stone-600 hover:text-stone-800 transition-colors"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="font-inter text-xs text-white/40 hover:text-white/60 transition-colors"
+                className="font-inter text-xs text-stone-600 hover:text-stone-800 transition-colors"
               >
                 Terms of Use
               </Link>

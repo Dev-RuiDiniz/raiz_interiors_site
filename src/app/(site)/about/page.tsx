@@ -38,32 +38,32 @@ const instagramPosts = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-stone-50">
+      {/* Hero Section - Menor */}
+      <section className="relative pt-28 pb-12 lg:pt-36 lg:pb-16 bg-[#E3DFDD]">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-cormorant text-5xl lg:text-7xl font-light text-stone-900 leading-tight">
+              <h1 className="font-cormorant text-3xl lg:text-4xl font-light text-stone-800 leading-tight">
                 About <span className="italic">Us</span>
               </h1>
-              <p className="mt-6 font-inter text-base text-stone-600 leading-relaxed">
+              <p className="mt-4 font-inter text-sm text-stone-600 leading-relaxed">
                 RAIZ Interiors is a design studio founded on the belief that spaces 
                 should tell stories. We create environments that reflect the unique 
                 personality and lifestyle of each client, blending functionality 
                 with aesthetics to craft timeless interiors.
               </p>
-              <p className="mt-4 font-inter text-base text-stone-600 leading-relaxed">
+              <p className="mt-3 font-inter text-sm text-stone-600 leading-relaxed">
                 Based in Portugal, we bring a Mediterranean sensibility to our work – 
                 an appreciation for light, natural materials, and the art of living well.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative aspect-[4/5] overflow-hidden"
@@ -79,35 +79,45 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Philosophy Section */}
-      <section className="py-20 lg:py-32 bg-white">
+      {/* Our Values - Movido para cima */}
+      <section className="py-12 lg:py-16 bg-[#CFCAC7]">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto text-center"
+            transition={{ duration: 0.6 }}
+            className="text-center mb-10"
           >
-            <span className="font-inter text-xs tracking-[0.3em] uppercase text-stone-500">
-              Our Philosophy
-            </span>
-            <div className="mt-8">
-              <ArtisticText
-                as="h2"
-                highlightWords={['INTERIORS', 'DESIGNED', 'SENSES', 'EMOTIONS', 'EXPERIENCES', 'RITUALS', 'LIVING']}
-                className="font-inter text-xl sm:text-2xl lg:text-3xl font-light text-stone-800 leading-relaxed"
-                highlightClassName="text-stone-600"
-              >
-                Our INTERIORS are DESIGNED to stimulate the SENSES awaken EMOTIONS and CREATE new EXPERIENCES and RITUALS — inspiring NEW WAYS of LIVING.
-              </ArtisticText>
-            </div>
+            <h2 className="font-cormorant text-xl lg:text-2xl font-light text-stone-800">
+              Our <span className="italic">Values</span>
+            </h2>
           </motion.div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <h3 className="font-cormorant text-base lg:text-lg text-stone-800 mb-2">
+                  {value.title}
+                </h3>
+                <p className="font-inter text-[10px] lg:text-xs text-stone-600 leading-relaxed">
+                  {value.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* The Founder */}
-      <section className="py-20 lg:py-32 bg-stone-50">
+      <section className="py-12 lg:py-16 bg-[#E3DFDD]">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
@@ -157,7 +167,7 @@ export default function AboutPage() {
               {/* Social Links */}
               <div className="mt-8 flex gap-4">
                 <a
-                  href="https://instagram.com/raiz.interiors"
+                  href="https://www.instagram.com/raiz.interiors.living/?hl=pt"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 border border-stone-300 flex items-center justify-center text-stone-500 hover:text-stone-900 hover:border-stone-900 transition-all"
@@ -186,45 +196,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="py-20 lg:py-32 bg-white">
-        <div className="container mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="font-cormorant text-4xl lg:text-5xl font-light text-stone-900">
-              Our <span className="italic">Values</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="text-center p-6"
-              >
-                <h3 className="font-cormorant text-2xl text-stone-900 mb-4">
-                  {value.title}
-                </h3>
-                <p className="font-inter text-sm text-stone-500 leading-relaxed">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Instagram Section */}
-      <section className="py-20 lg:py-32 bg-stone-50">
+      <section className="py-12 lg:py-16 bg-[#CFCAC7]">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -284,27 +258,23 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 lg:py-32 bg-stone-900">
+      {/* CTA Section - Menos agressivo */}
+      <section className="py-16 lg:py-20 bg-[#B4ADA8]">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-cormorant text-4xl lg:text-5xl font-light text-white mb-6">
-              Let's Create Something <span className="italic">Beautiful</span>
-            </h2>
-            <p className="font-inter text-sm text-white/60 max-w-md mx-auto mb-10">
-              Ready to transform your space? We'd love to hear about your project.
+            <p className="font-cormorant text-xl lg:text-2xl font-light text-white italic mb-6">
+              Let us be part of your story...
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-stone-900 font-inter text-xs tracking-[0.2em] uppercase hover:bg-white/90 transition-colors"
+              className="inline-block px-8 py-3 border border-white/50 text-white font-inter text-[10px] tracking-[0.2em] uppercase hover:bg-white hover:text-stone-800 transition-all duration-300"
             >
-              <span>Get in Touch</span>
-              <ArrowRight size={16} />
+              Contact
             </Link>
           </motion.div>
         </div>

@@ -189,29 +189,24 @@ function ProjectCard({ project }: ProjectCardProps) {
           className={cn(
             'absolute inset-0 transition-opacity duration-500',
             isComingSoon
-              ? 'bg-black/50'
-              : 'bg-black/25 group-hover:bg-black/35'
+              ? 'bg-stone-900/50'
+              : 'bg-stone-900/20 group-hover:bg-stone-900/30'
           )}
         />
       </div>
 
-      {/* Content - Centrado na imagem */}
+      {/* Content - Centrado, títulos menores */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full p-4 text-center">
-        <h3 className="font-cormorant text-lg sm:text-xl lg:text-2xl font-light text-white leading-tight tracking-wide">
-          {project.title}
+        <h3 className="font-cormorant text-sm sm:text-base lg:text-lg font-light text-white leading-tight tracking-wide">
+          {project.title} {project.subtitle && <span className="italic">{project.subtitle}</span>}
         </h3>
-        {project.subtitle && (
-          <p className="font-cormorant text-base sm:text-lg lg:text-xl italic text-white/90 mt-0.5">
-            {project.subtitle}
-          </p>
-        )}
-        <p className="font-inter text-[9px] sm:text-[10px] tracking-[0.15em] uppercase text-white/70 mt-2">
+        <p className="font-inter text-[8px] sm:text-[9px] tracking-[0.12em] uppercase text-white/70 mt-1.5">
           {project.location}
         </p>
         
         {/* Status Badge */}
         {statusLabel && (
-          <span className="mt-2 font-inter text-[8px] sm:text-[9px] tracking-[0.12em] uppercase text-white/60">
+          <span className="mt-1 font-inter text-[7px] sm:text-[8px] tracking-[0.1em] lowercase text-white/60 italic">
             {statusLabel}
           </span>
         )}

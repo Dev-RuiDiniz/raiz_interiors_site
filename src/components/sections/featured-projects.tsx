@@ -21,47 +21,41 @@ interface FeaturedProjectsProps {
 
 export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   return (
-    <section className="bg-stone-50 py-24 lg:py-32">
+    <section className="bg-[#E3DFDD] py-16 lg:py-20">
       <div className="container mx-auto px-6 lg:px-12">
-        {/* Header */}
+        {/* Header - Minimalista, sem h1 grande */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16"
+          className="flex items-center justify-between mb-8"
         >
-          <div>
-            <h2 className="font-cormorant text-4xl lg:text-5xl font-light text-stone-900">
-              Featured <span className="italic">Projects</span>
-            </h2>
-            <p className="mt-4 font-inter text-sm text-stone-500 max-w-md">
-              A curated selection of our most recent work, showcasing our commitment 
-              to thoughtful design and exceptional craftsmanship.
-            </p>
-          </div>
+          <span className="font-inter text-[10px] tracking-[0.2em] uppercase text-stone-500">
+            Selected Projects
+          </span>
 
           <Link
             href="/projects"
-            className="inline-flex items-center gap-3 font-inter text-xs tracking-[0.2em] uppercase text-stone-600 hover:text-stone-900 transition-colors group shrink-0"
+            className="inline-flex items-center gap-2 font-inter text-[10px] tracking-[0.15em] uppercase text-stone-500 hover:text-stone-700 transition-colors group"
           >
             <span>View All Projects</span>
             <ArrowRight
-              size={16}
+              size={12}
               className="transform group-hover:translate-x-1 transition-transform"
             />
           </Link>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {/* Projects Grid - Grafismo igual ao menu de projetos */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
             >
               <ProjectCard project={project} />
             </motion.div>
@@ -76,11 +70,17 @@ function ProjectCard({ project }: { project: Project }) {
   const isComingSoon = project.status === 'COMING_SOON'
   const isWorkInProgress = project.status === 'WORK_IN_PROGRESS'
 
+  const statusLabel = isComingSoon 
+    ? 'Coming soon' 
+    : isWorkInProgress 
+      ? 'work in progress' 
+      : null
+
   return (
     <Link
       href={isComingSoon ? '#' : `/projects/${project.slug}`}
       className={cn(
-        'group block relative overflow-hidden bg-stone-200 aspect-[4/3]',
+        'group block relative overflow-hidden bg-stone-300 aspect-[4/3]',
         isComingSoon && 'cursor-default'
       )}
     >
@@ -95,34 +95,32 @@ function ProjectCard({ project }: { project: Project }) {
             !isComingSoon && 'group-hover:scale-105'
           )}
         />
-        {/* Overlay */}
+        {/* Overlay - sem preto puro */}
         <div
           className={cn(
             'absolute inset-0 transition-opacity duration-500',
             isComingSoon
-              ? 'bg-black/50'
-              : 'bg-black/20 group-hover:bg-black/40'
+              ? 'bg-stone-900/50'
+              : 'bg-stone-900/20 group-hover:bg-stone-900/30'
           )}
         />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col justify-end h-full p-6 lg:p-8">
+      {/* Content - Centrado, grafismo igual ao menu projetos */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full p-4 text-center">
+        <h3 className="font-cormorant text-sm sm:text-base lg:text-lg font-light text-white leading-tight tracking-wide">
+          {project.title}
+        </h3>
+        <p className="font-inter text-[8px] sm:text-[9px] tracking-[0.12em] uppercase text-white/70 mt-1.5">
+          {project.location}
+        </p>
+        
         {/* Status Badge */}
-        {(isComingSoon || isWorkInProgress) && (
-          <span className="absolute top-6 left-6 lg:top-8 lg:left-8 font-inter text-[10px] tracking-[0.2em] uppercase text-white/80 bg-white/10 backdrop-blur-sm px-3 py-1.5">
-            {isComingSoon ? 'Coming Soon' : 'Work in Progress'}
+        {statusLabel && (
+          <span className="mt-1 font-inter text-[7px] sm:text-[8px] tracking-[0.1em] lowercase text-white/60 italic">
+            {statusLabel}
           </span>
         )}
-
-        <div className="transform transition-transform duration-500 group-hover:translate-y-0 translate-y-2">
-          <h3 className="font-cormorant text-2xl lg:text-3xl font-light text-white">
-            {project.title}
-          </h3>
-          <p className="mt-2 font-inter text-xs tracking-[0.15em] uppercase text-white/70">
-            {project.location}
-          </p>
-        </div>
       </div>
     </Link>
   )

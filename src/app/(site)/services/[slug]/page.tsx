@@ -143,26 +143,26 @@ export default function ServiceDetailPage({ params }: PageProps) {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-stone-50">
+      {/* Hero Section - Menor */}
+      <section className="relative pt-28 pb-12 lg:pt-36 lg:pb-16 bg-[#E3DFDD]">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 font-inter text-xs tracking-[0.15em] uppercase text-stone-500 hover:text-stone-900 transition-colors mb-8"
+              className="inline-flex items-center gap-2 font-inter text-[10px] tracking-[0.15em] uppercase text-stone-500 hover:text-stone-700 transition-colors mb-6"
             >
-              <ArrowLeft size={14} />
+              <ArrowLeft size={12} />
               All Services
             </Link>
 
-            <h1 className="font-cormorant text-5xl lg:text-7xl font-light text-stone-900 leading-tight">
+            <h1 className="font-cormorant text-3xl lg:text-4xl font-light text-stone-800 leading-tight">
               {service.title}
             </h1>
-            <p className="mt-4 font-cormorant text-xl lg:text-2xl text-stone-500 italic">
+            <p className="mt-2 font-cormorant text-base lg:text-lg text-stone-600 italic">
               {service.subtitle}
             </p>
           </motion.div>
@@ -170,48 +170,47 @@ export default function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* Content */}
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-16 lg:py-24 bg-[#E3DFDD]">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Left: Description */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="font-cormorant text-3xl font-light text-stone-900 mb-8">
+              <h2 className="font-cormorant text-xl lg:text-2xl font-light text-stone-800 mb-6">
                 What We <span className="italic">Offer</span>
               </h2>
-              <div className="font-inter text-base text-stone-600 leading-relaxed whitespace-pre-line">
+              <div className="font-inter text-sm text-stone-600 leading-relaxed whitespace-pre-line">
                 {service.description}
               </div>
             </motion.div>
 
-            {/* Right: Features */}
+            {/* Right: Features - Pontinhos em vez de viñetas */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h3 className="font-inter text-xs tracking-[0.2em] uppercase text-stone-500 mb-8">
+              <h3 className="font-inter text-[10px] tracking-[0.2em] uppercase text-stone-500 mb-6">
                 Services Include
               </h3>
-              <ul className="space-y-5">
+              <ul className="space-y-3">
                 {service.features.map((feature, index) => (
                   <motion.li
                     key={index}
-                    initial={{ opacity: 0, x: 20 }}
+                    initial={{ opacity: 0, x: 10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    className="flex items-start gap-4"
+                    transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
+                    className="flex items-center gap-3"
                   >
-                    <div className="w-5 h-5 rounded-full bg-stone-100 flex items-center justify-center shrink-0 mt-0.5">
-                      <Check size={12} className="text-stone-600" />
-                    </div>
-                    <span className="font-inter text-sm text-stone-700">
+                    {/* Pontinho minimalista */}
+                    <div className="w-1.5 h-1.5 rounded-full bg-stone-500 shrink-0" />
+                    <span className="font-inter text-xs text-stone-700">
                       {feature}
                     </span>
                   </motion.li>
@@ -223,17 +222,17 @@ export default function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* Images */}
-      <section className="py-8 lg:py-16 bg-stone-50">
+      <section className="py-8 lg:py-12 bg-[#CFCAC7]">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {service.images.map((image, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                className="relative aspect-[4/3] overflow-hidden bg-stone-200"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative aspect-[4/3] overflow-hidden bg-stone-300"
               >
                 <Image
                   src={image}
@@ -247,27 +246,23 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 lg:py-32 bg-white">
+      {/* CTA - Menos agressivo */}
+      <section className="py-16 lg:py-24 bg-[#B4ADA8]">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-cormorant text-3xl lg:text-4xl font-light text-stone-900 mb-6">
-              Interested in {service.title}?
-            </h2>
-            <p className="font-inter text-sm text-stone-500 max-w-md mx-auto mb-10">
-              Let's discuss how we can help bring your vision to life.
+            <p className="font-cormorant text-xl lg:text-3xl font-light text-white italic mb-6">
+              Let's create something beautiful together...
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-stone-900 text-white font-inter text-xs tracking-[0.2em] uppercase hover:bg-stone-800 transition-colors"
+              className="inline-block px-8 py-3 border border-white/50 text-white font-inter text-[10px] tracking-[0.2em] uppercase hover:bg-white hover:text-stone-800 transition-all duration-300"
             >
-              <span>Start a Conversation</span>
-              <ArrowRight size={16} />
+              Contact
             </Link>
           </motion.div>
         </div>

@@ -26,14 +26,8 @@ const contactInfo = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'hello@raiz-interiors.com',
-    href: 'mailto:hello@raiz-interiors.com',
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '+351 912 345 678',
-    href: 'tel:+351912345678',
+    value: 'info@raiz-interiors.com',
+    href: 'mailto:info@raiz-interiors.com',
   },
   {
     icon: MapPin,
@@ -44,7 +38,7 @@ const contactInfo = [
 ]
 
 const socialLinks = [
-  { icon: Instagram, href: 'https://instagram.com/raiz.interiors', label: 'Instagram' },
+  { icon: Instagram, href: 'https://www.instagram.com/raiz.interiors.living/?hl=pt', label: 'Instagram' },
   { icon: FaPinterestP, href: 'https://pinterest.com/raizinteriors', label: 'Pinterest' },
   { icon: Linkedin, href: 'https://linkedin.com/company/raiz-interiors', label: 'LinkedIn' },
 ]
@@ -79,19 +73,19 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 bg-stone-50">
+      {/* Hero Section - Menor */}
+      <section className="relative pt-28 pb-8 lg:pt-36 lg:pb-12 bg-[#E3DFDD]">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-3xl"
+            className="max-w-2xl"
           >
-            <h1 className="font-cormorant text-5xl lg:text-7xl font-light text-stone-900 leading-tight">
+            <h1 className="font-cormorant text-3xl lg:text-4xl font-light text-stone-800 leading-tight">
               Get in <span className="italic">Touch</span>
             </h1>
-            <p className="mt-6 font-inter text-base text-stone-600 leading-relaxed max-w-xl">
+            <p className="mt-4 font-inter text-sm text-stone-600 leading-relaxed max-w-lg">
               We'd love to hear about your project. Whether you're ready to start 
               or just exploring possibilities, let's begin a conversation.
             </p>
@@ -100,7 +94,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 lg:py-32 bg-white">
+      <section className="py-12 lg:py-16 bg-[#E3DFDD]">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             {/* Left: Contact Info */}
@@ -110,7 +104,7 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="font-cormorant text-3xl font-light text-stone-900 mb-8">
+              <h2 className="font-cormorant text-xl lg:text-2xl font-light text-stone-800 mb-6">
                 Contact <span className="italic">Information</span>
               </h2>
 
@@ -200,7 +194,7 @@ export default function ContactPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h2 className="font-cormorant text-3xl font-light text-stone-900 mb-8">
+              <h2 className="font-cormorant text-xl lg:text-2xl font-light text-stone-800 mb-6">
                 Send a <span className="italic">Message</span>
               </h2>
 
@@ -332,20 +326,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section (Optional placeholder) */}
-      <section className="h-96 bg-stone-200 relative">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <MapPin size={48} className="text-stone-400 mx-auto mb-4" />
-            <p className="font-inter text-sm text-stone-500">
-              Lisbon, Portugal
-            </p>
-            <p className="font-inter text-xs text-stone-400 mt-2">
-              Map integration coming soon
-            </p>
-          </div>
-        </div>
-      </section>
     </>
   )
 }

@@ -7,9 +7,9 @@ import { ArrowRight } from 'lucide-react'
 
 export function AboutPreview() {
   return (
-    <section className="bg-white py-24 lg:py-32">
+    <section className="bg-[#CFCAC7] py-20 lg:py-28">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left: Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -20,39 +20,32 @@ export function AboutPreview() {
           >
             <Image
               src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80"
-              alt="RAIZ Interiors Designer"
+              alt="RAIZ Interiors - Live Beautiful"
               fill
               className="object-cover"
             />
+            {/* Overlay com texto */}
+            <div className="absolute inset-0 bg-stone-900/30 flex items-end justify-center pb-8">
+              <span className="font-cormorant text-xl lg:text-2xl text-white italic tracking-wide">
+                Live Beautiful
+              </span>
+            </div>
           </motion.div>
 
-          {/* Right: Content */}
+          {/* Right: Content - Frase em vez de h1 */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-center lg:text-left"
           >
-            <span className="font-inter text-xs tracking-[0.3em] uppercase text-stone-500">
-              About Us
-            </span>
-
-            <h2 className="mt-6 font-cormorant text-4xl lg:text-5xl font-light text-stone-900 leading-tight">
-              The Vision Behind <br />
-              <span className="italic">Our Designs</span>
-            </h2>
-
-            <p className="mt-8 font-inter text-sm text-stone-600 leading-relaxed">
-              RAIZ Interiors is a design studio founded on the belief that spaces 
-              should tell stories. We create environments that reflect the unique 
-              personality and lifestyle of each client, blending functionality 
-              with aesthetics to craft timeless interiors.
-            </p>
-
-            <p className="mt-4 font-inter text-sm text-stone-600 leading-relaxed">
-              With a meticulous attention to detail and a passion for quality, 
-              we transform spaces into sanctuaries that inspire and nurture 
-              those who inhabit them.
+            <p className="font-cormorant text-lg sm:text-xl lg:text-2xl font-light text-stone-800 leading-relaxed">
+              We don't just create <span className="uppercase">beautiful homes</span>,{' '}
+              we design <span className="uppercase">meaningful</span> spaces that tell{' '}
+              <span className="uppercase">your story</span>, and inspire{' '}
+              <span className="uppercase">experiences</span> where{' '}
+              <span className="uppercase">memories</span> are built.
             </p>
 
             <motion.div
@@ -60,15 +53,15 @@ export function AboutPreview() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-10"
+              className="mt-8"
             >
               <Link
                 href="/about"
-                className="inline-flex items-center gap-3 font-inter text-xs tracking-[0.2em] uppercase text-stone-600 hover:text-stone-900 transition-colors group"
+                className="inline-flex items-center gap-2 font-inter text-[10px] tracking-[0.2em] uppercase text-stone-600 hover:text-stone-800 transition-colors group"
               >
                 <span>Learn More</span>
                 <ArrowRight
-                  size={16}
+                  size={12}
                   className="transform group-hover:translate-x-1 transition-transform"
                 />
               </Link>
