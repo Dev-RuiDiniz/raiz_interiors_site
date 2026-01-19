@@ -19,8 +19,8 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
 
-  // Páginas com hero escuro (texto branco no header)
-  const darkHeroPages = ['/', '/services']
+  // Páginas com hero escuro (texto branco no header) - apenas Home tem hero com imagem
+  const darkHeroPages = ['/']
   const hasDarkHero = darkHeroPages.includes(pathname)
 
   // Se não tem hero escuro, sempre usar texto escuro
