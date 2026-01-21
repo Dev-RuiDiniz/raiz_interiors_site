@@ -38,9 +38,9 @@ const contactInfo = [
 ]
 
 const socialLinks = [
-  { icon: Instagram, href: 'https://www.instagram.com/raiz.interiors.living/?hl=pt', label: 'Instagram' },
-  { icon: FaPinterestP, href: 'https://pinterest.com/raizinteriors', label: 'Pinterest' },
-  { icon: Linkedin, href: 'https://linkedin.com/company/raiz-interiors', label: 'LinkedIn' },
+  { icon: Instagram, href: 'https://www.instagram.com/raiz.interiors.living', label: 'Instagram' },
+  { icon: FaPinterestP, href: 'https://pt.pinterest.com/raizinteriorsliving/', label: 'Pinterest' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/raiz-interiors-living', label: 'LinkedIn' },
 ]
 
 export default function ContactPage() {
@@ -168,23 +168,6 @@ export default function ContactPage() {
                 </div>
               </motion.div>
 
-              {/* Office Hours */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="mt-12 p-8 bg-stone-50"
-              >
-                <h3 className="font-inter text-xs tracking-[0.2em] uppercase text-stone-500 mb-4">
-                  Office Hours
-                </h3>
-                <div className="space-y-2 font-inter text-sm text-stone-600">
-                  <p>Monday – Friday: 9:00 – 18:00</p>
-                  <p>Saturday: By appointment</p>
-                  <p>Sunday: Closed</p>
-                </div>
-              </motion.div>
             </motion.div>
 
             {/* Right: Contact Form */}

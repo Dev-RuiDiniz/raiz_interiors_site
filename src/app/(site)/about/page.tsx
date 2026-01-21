@@ -3,9 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Instagram, Linkedin } from 'lucide-react'
-import { FaPinterestP } from 'react-icons/fa'
-import { ArtisticText } from '@/components/ui/artistic-text'
+import { ArrowRight } from 'lucide-react'
 
 const values = [
   {
@@ -145,52 +143,23 @@ export default function AboutPage() {
               <span className="font-inter text-xs tracking-[0.3em] uppercase text-stone-500">
                 The Founder
               </span>
-              <h2 className="mt-4 font-cormorant text-4xl lg:text-5xl font-light text-stone-900 leading-tight">
-                The Vision Behind <br />
-                <span className="italic">Our Designs</span>
+              <h2 className="mt-4 font-cormorant text-2xl lg:text-3xl font-light text-stone-900 leading-tight">
+                The Vision Behind <span className="italic">Our Designs</span>
               </h2>
-              <p className="mt-8 font-inter text-base text-stone-600 leading-relaxed">
+              <p className="mt-6 font-inter text-sm text-stone-600 leading-relaxed">
                 With over a decade of experience in architecture and interior design, 
                 our founder brings a refined aesthetic sensibility and deep understanding 
                 of how spaces shape our daily experiences.
               </p>
-              <p className="mt-4 font-inter text-base text-stone-600 leading-relaxed">
+              <p className="mt-3 font-inter text-sm text-stone-600 leading-relaxed">
                 Trained in classical architecture with a passion for contemporary design, 
                 she bridges tradition and innovation to create spaces that feel both 
                 timeless and fresh.
               </p>
-              <p className="mt-4 font-inter text-base text-stone-600 leading-relaxed">
+              <p className="mt-3 font-inter text-sm text-stone-600 leading-relaxed">
                 "I believe that the best interiors are those that evolve with their 
                 inhabitants, that tell a story and invite new chapters to be written."
               </p>
-
-              {/* Social Links */}
-              <div className="mt-8 flex gap-4">
-                <a
-                  href="https://www.instagram.com/raiz.interiors.living/?hl=pt"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 border border-stone-300 flex items-center justify-center text-stone-500 hover:text-stone-900 hover:border-stone-900 transition-all"
-                >
-                  <Instagram size={18} />
-                </a>
-                <a
-                  href="https://pinterest.com/raizinteriors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 border border-stone-300 flex items-center justify-center text-stone-500 hover:text-stone-900 hover:border-stone-900 transition-all"
-                >
-                  <FaPinterestP size={18} />
-                </a>
-                <a
-                  href="https://linkedin.com/company/raiz-interiors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 border border-stone-300 flex items-center justify-center text-stone-500 hover:text-stone-900 hover:border-stone-900 transition-all"
-                >
-                  <Linkedin size={18} />
-                </a>
-              </div>
             </motion.div>
           </div>
         </div>
@@ -205,61 +174,42 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-8"
           >
-            <ArtisticText
-              as="h2"
-              highlightWords={['INSPIRATION', 'DESIGN', 'WORLD', 'INSPIRED']}
-              className="font-inter text-xl sm:text-2xl font-light text-stone-800 leading-relaxed max-w-2xl mx-auto"
-              highlightClassName="text-stone-600"
-            >
+            <p className="font-inter text-sm text-stone-600">
               INSPIRATION through DESIGN. Welcome to our WORLD and get INSPIRED...
-            </ArtisticText>
-
-            <a
-              href="https://instagram.com/raiz.interiors"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 mt-6 font-inter text-xs tracking-[0.2em] uppercase text-stone-500 hover:text-stone-900 transition-colors"
-            >
-              <Instagram size={18} />
-              @raiz.interiors
-            </a>
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-4">
+          <a 
+            href="https://www.instagram.com/raiz.interiors.living"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-4 group"
+          >
             {instagramPosts.map((post, index) => (
-              <motion.a
+              <motion.div
                 key={post.id}
-                href="https://instagram.com/raiz.interiors"
-                target="_blank"
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group block relative aspect-square overflow-hidden bg-stone-200"
+                className="relative aspect-square overflow-hidden bg-stone-200"
               >
                 <Image
                   src={post.image}
                   alt={`Instagram post ${post.id}`}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                  <Instagram
-                    size={24}
-                    className="text-white opacity-0 group-hover:opacity-100 transition-opacity"
-                  />
-                </div>
-              </motion.a>
+              </motion.div>
             ))}
-          </div>
+          </a>
         </div>
       </section>
 
-      {/* CTA Section - Menos agressivo */}
-      <section className="py-16 lg:py-20 bg-[#B4ADA8]">
+      {/* CTA Section - Altura reduzida */}
+      <section className="py-10 lg:py-12 bg-[#B4ADA8]">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
