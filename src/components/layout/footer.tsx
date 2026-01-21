@@ -2,13 +2,13 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
+import { Instagram, Linkedin, Mail, MapPin } from 'lucide-react'
 import { FaPinterestP } from 'react-icons/fa'
 
 const socialLinks = [
-  { icon: Instagram, href: 'https://instagram.com/raiz.interiors', label: 'Instagram' },
-  { icon: FaPinterestP, href: 'https://pinterest.com/raizinteriors', label: 'Pinterest' },
-  { icon: Linkedin, href: 'https://linkedin.com/company/raiz-interiors', label: 'LinkedIn' },
+  { icon: Instagram, href: 'https://www.instagram.com/raiz.interiors.living', label: 'Instagram' },
+  { icon: FaPinterestP, href: 'https://pt.pinterest.com/raizinteriorsliving/', label: 'Pinterest' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/company/raiz-interiors-living', label: 'LinkedIn' },
 ]
 
 const navLinks = [
@@ -23,48 +23,7 @@ export function Footer() {
 
   return (
     <footer className="bg-[#B4ADA8] text-stone-800">
-      {/* Newsletter Section */}
-      <div className="border-b border-stone-600/20">
-        <div className="container mx-auto px-6 lg:px-12 py-16 lg:py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h3 className="font-cormorant text-2xl lg:text-3xl font-light mb-4 text-stone-800">
-                Stay <span className="italic">Inspired</span>
-              </h3>
-              <p className="font-inter text-sm text-stone-600 max-w-md">
-                Subscribe to our newsletter for exclusive insights, design inspiration, 
-                and updates on our latest projects.
-              </p>
-            </motion.div>
-
-            <motion.form
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-4"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 bg-white/30 border border-stone-600/30 px-6 py-4 font-inter text-sm text-stone-800 placeholder:text-stone-500 focus:outline-none focus:border-stone-600/50 transition-colors"
-              />
-              <button
-                type="submit"
-                className="px-8 py-4 bg-stone-700 text-white font-inter text-xs tracking-[0.2em] uppercase hover:bg-stone-600 transition-colors"
-              >
-                Subscribe
-              </button>
-            </motion.form>
-          </div>
-        </div>
-      </div>
+      {/* Newsletter Section - Desligado por enquanto */}
 
       {/* Main Footer */}
       <div className="container mx-auto px-6 lg:px-12 py-16 lg:py-20">
@@ -124,18 +83,11 @@ export function Footer() {
             </h4>
             <div className="flex flex-col gap-4">
               <a
-                href="mailto:hello@raiz-interiors.com"
+                href="mailto:info@raiz-interiors.com"
                 className="flex items-center gap-3 font-inter text-sm text-stone-600 hover:text-stone-800 transition-colors"
               >
                 <Mail size={16} />
-                hello@raiz-interiors.com
-              </a>
-              <a
-                href="tel:+351912345678"
-                className="flex items-center gap-3 font-inter text-sm text-stone-600 hover:text-stone-800 transition-colors"
-              >
-                <Phone size={16} />
-                +351 912 345 678
+                info@raiz-interiors.com
               </a>
               <div className="flex items-start gap-3 font-inter text-sm text-stone-600">
                 <MapPin size={16} className="mt-0.5 shrink-0" />
