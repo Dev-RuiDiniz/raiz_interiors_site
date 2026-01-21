@@ -127,8 +127,8 @@ export default function ProjectDetailPage({ params }: PageProps) {
 
   return (
     <>
-      {/* Hero Cover */}
-      <section className="relative h-[70vh] lg:h-[85vh] overflow-hidden">
+      {/* Hero Cover - Altura reduzida */}
+      <section className="relative h-[50vh] lg:h-[60vh] overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src={project.coverImage}
@@ -140,69 +140,41 @@ export default function ProjectDetailPage({ params }: PageProps) {
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 lg:px-12 h-full flex flex-col justify-end pb-16 lg:pb-24">
+        <div className="relative z-10 container mx-auto px-6 lg:px-12 h-full flex flex-col justify-end pb-12 lg:pb-16">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="font-inter text-xs tracking-[0.3em] uppercase text-white/70">
-              {project.category}
-            </span>
-            <h1 className="mt-4 font-cormorant text-4xl sm:text-5xl lg:text-7xl font-light text-white leading-tight">
+            <h1 className="font-cormorant text-3xl sm:text-4xl lg:text-5xl font-light text-white leading-tight">
               {project.title}
             </h1>
-            <p className="mt-3 font-inter text-lg text-white/80">
+            <p className="mt-2 font-inter text-sm text-white/80">
               {project.subtitle}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Project Info */}
-      <section className="py-16 lg:py-24 bg-white">
+      {/* Project Description - Texto corrido sem título */}
+      <section className="py-12 lg:py-16 bg-[#E3DFDD]">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-3 gap-12 lg:gap-20">
-            {/* Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-2"
-            >
-              <h2 className="font-cormorant text-3xl lg:text-4xl font-light text-stone-900 mb-8">
-                About the <span className="italic">Project</span>
-              </h2>
-              <div className="font-inter text-base text-stone-600 leading-relaxed whitespace-pre-line">
-                {project.description}
-              </div>
-            </motion.div>
-
-            {/* Details */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h3 className="font-inter text-xs tracking-[0.2em] uppercase text-stone-500 mb-6">
-                Project Details
-              </h3>
-              <div className="space-y-6">
-                <DetailItem label="Location" value={project.location} />
-                <DetailItem label="Year" value={project.year} />
-                <DetailItem label="Area" value={project.area} />
-                <DetailItem label="Client" value={project.client} />
-                <DetailItem label="Credits" value={project.credits} />
-              </div>
-            </motion.div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl"
+          >
+            <div className="font-inter text-sm text-stone-600 leading-relaxed whitespace-pre-line">
+              {project.description}
+            </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Gallery */}
-      <section className="py-8 lg:py-16 bg-stone-50">
+      <section className="py-8 lg:py-12 bg-[#CFCAC7]">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
             {project.images.map((image, index) => (
@@ -236,8 +208,28 @@ export default function ProjectDetailPage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* Project Details - No final com menos destaque */}
+      <section className="py-10 lg:py-14 bg-[#E3DFDD]">
+        <div className="container mx-auto px-6 lg:px-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-4"
+          >
+            <DetailItem label="Location" value={project.location} />
+            <DetailItem label="Year" value={project.year} />
+            <DetailItem label="Category" value={project.category} />
+            <DetailItem label="Type" value={project.client} />
+            <DetailItem label="Credits" value={project.credits} />
+            <DetailItem label="Photography / 3D" value="RAIZ Interiors" />
+          </motion.div>
+        </div>
+      </section>
+
       {/* Navigation */}
-      <section className="py-16 lg:py-24 bg-white border-t border-stone-200">
+      <section className="py-10 lg:py-14 bg-[#B4ADA8] border-t border-stone-500/20">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-8">
             {/* Back to Projects */}
