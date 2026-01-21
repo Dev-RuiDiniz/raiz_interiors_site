@@ -1,6 +1,5 @@
 import { Hero } from '@/components/sections/hero'
 import { IntroSection } from '@/components/sections/intro'
-import { HomeGallery } from '@/components/sections/home-gallery'
 import { FeaturedProjects } from '@/components/sections/featured-projects'
 import { ServicesPreview } from '@/components/sections/services-preview'
 import { AboutPreview } from '@/components/sections/about-preview'
@@ -46,7 +45,6 @@ export default function Home() {
     <>
       <Hero />
       <IntroSection />
-      <HomeGallery />
       <FeaturedProjects projects={featuredProjects} />
       <ServicesPreview />
       <AboutPreview />

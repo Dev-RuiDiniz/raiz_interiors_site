@@ -5,30 +5,42 @@ import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
-// Slides com imagem e conteúdo único - Frases em 2 linhas
+// Slides com imagem e conteúdo único - 6 slides no total
 const heroSlides = [
   {
-    image: '/beach-house-troia.jpg',
+    image: '/galeriaInicial/beautiful and timeless comporta summer house interior design by RAIZ.jpg',
     line1: "It's not about INTERIOR DESIGN itself",
     line2: "It's about YOU, your STORY, your CONNECTIONS...",
     link: '/projects',
   },
   {
-    image: '/comporta-summer-house.jpg',
+    image: '/galeriaInicial/contemporary minimalist living room suspended staircase and fireplace interior design by RAIZ .jpg',
     line1: 'CRAFTING SPACES',
     line2: 'with PURPOSE',
     link: '/projects',
   },
   {
-    image: '/contemporary-city-house.jpg',
+    image: '/galeriaInicial/contemporary-beach-house-living-room-with-fireplace-interior-design-by-RAIZ.jpg',
     line1: 'Where DESIGN',
     line2: 'meets your SOUL',
     link: '/projects',
   },
   {
-    image: '/elegant-duplex-braga.jpg',
+    image: '/galeriaInicial/elegant timeless luxury master suite interior design by RAIZ.jpg',
     line1: 'BESPOKE SPACES',
     line2: 'that tell your story',
+    link: '/projects',
+  },
+  {
+    image: '/galeriaInicial/IMG_0820_SnapseedCopy.jpg',
+    line1: 'CRAFTING SPACES',
+    line2: 'with PURPOSE',
+    link: '/projects',
+  },
+  {
+    image: '/galeriaInicial/SUITE 4K.jpg',
+    line1: 'Where DESIGN',
+    line2: 'meets your SOUL',
     link: '/projects',
   },
 ]
