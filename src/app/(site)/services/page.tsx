@@ -9,37 +9,37 @@ const services = [
     slug: 'architecture',
     title: 'Architecture',
     excerpt: 'Architectural solutions that create experiences.',
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
+    image: '/2026/SERVICES/Architeture.JPG',
   },
   {
     slug: 'interior-design',
     title: 'Interior Design',
     excerpt: 'Interior environments that reflect your lifestyle and soul.',
-    image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80',
+    image: '/2026/SERVICES/Interior Design.jpg',
   },
   {
     slug: 'decoration',
     title: 'Decoration',
     excerpt: 'Curating furniture, art and accessories to bring personality to the space.',
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80',
+    image: '/2026/SERVICES/Decoration.jpg',
   },
   {
     slug: 'bespoke-furniture',
     title: 'Bespoke Furniture',
     excerpt: 'Custom furniture designed to fit your unique space and style.',
-    image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80',
+    image: '/2026/SERVICES/Bespoke Furniture.jpg',
   },
   {
     slug: 'consultancy',
     title: 'Consultancy',
     excerpt: 'Personalized expert guidance on Design solutions.',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
+    image: '/2026/SERVICES/Consultancy.jpg',
   },
   {
     slug: 'styling-staging',
     title: 'Styling & Staging',
     excerpt: 'Transforming spaces strategically to maximize appeal.',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
+    image: '/2026/SERVICES/Styling & Staging.png',
   },
 ]
 

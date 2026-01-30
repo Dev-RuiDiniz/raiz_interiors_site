@@ -49,14 +49,15 @@ export default function AboutPage() {
                 About <span className="italic">Us</span>
               </h1>
               <p className="mt-4 font-inter text-sm text-stone-600 leading-relaxed">
-                RAIZ Interiors is a design studio founded on the belief that spaces 
-                should tell stories. We create environments that reflect the unique 
-                personality and lifestyle of each client, blending functionality 
-                with aesthetics to craft timeless interiors.
+                The essence of our work lies in the art of thinking and designing spaces 
+                with a particular and personal narrative in each project. We believe in an 
+                empathetic, intimate approach, carefully tailored to each individual, their 
+                story, and their connections.
               </p>
               <p className="mt-3 font-inter text-sm text-stone-600 leading-relaxed">
-                Based in Portugal, we bring a Mediterranean sensibility to our work – 
-                an appreciation for light, natural materials, and the art of living well.
+                With a sensory and emotional perspective, we craft humanized, functional, 
+                coherent, and balanced designs, shaping environments that radiate harmony, 
+                well-being, and serenity.
               </p>
             </motion.div>
 
@@ -67,8 +68,8 @@ export default function AboutPage() {
               className="relative aspect-[4/5] overflow-hidden"
             >
               <Image
-                src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80"
-                alt="RAIZ Interiors Studio"
+                src="/2026/ABOUT US/LIVE-BEAUTIFUL-Interior-Design-by-RAIZ.jpg"
+                alt="RAIZ Interiors - Live Beautiful"
                 fill
                 className="object-cover"
               />
@@ -126,7 +127,7 @@ export default function AboutPage() {
               className="relative aspect-[3/4] overflow-hidden order-2 lg:order-1"
             >
               <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80"
+                src="/2026/ABOUT US/IMG_3574.jpg"
                 alt="Founder of RAIZ Interiors"
                 fill
                 className="object-cover"

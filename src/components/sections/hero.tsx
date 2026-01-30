@@ -8,40 +8,40 @@ import Link from 'next/link'
 // Slides com imagem e conteúdo único - 6 slides no total
 const heroSlides = [
   {
-    image: '/galeriaInicial/beautiful and timeless comporta summer house interior design by RAIZ.jpg',
-    line1: "It's not about INTERIOR DESIGN itself",
-    line2: "It's about YOU, your STORY, your CONNECTIONS...",
+    image: '/2026/HOME/GALERIA INICIAL/beautiful and timeless comporta summer house interior design by RAIZ.jpg',
+    line1: "It's not about interior design itself",
+    line2: "It's about you, your story, your connections...",
     link: '/projects',
   },
   {
-    image: '/galeriaInicial/contemporary minimalist living room suspended staircase and fireplace interior design by RAIZ .jpg',
+    image: '/2026/HOME/GALERIA INICIAL/contemporary minimalist living room suspended staircase and fireplace interior design by RAIZ .jpg',
     line1: 'CRAFTING SPACES',
     line2: 'with PURPOSE',
     link: '/projects',
   },
   {
-    image: '/galeriaInicial/contemporary-beach-house-living-room-with-fireplace-interior-design-by-RAIZ.jpg',
+    image: '/2026/HOME/GALERIA INICIAL/contemporary-beach-house-living-room-with-fireplace-interior-design-by-RAIZ.jpg',
     line1: 'Where DESIGN',
     line2: 'meets your SOUL',
     link: '/projects',
   },
   {
-    image: '/galeriaInicial/elegant timeless luxury master suite interior design by RAIZ.jpg',
+    image: '/2026/HOME/GALERIA INICIAL/elegant timeless luxury master suite interior design by RAIZ.jpg',
     line1: 'BESPOKE SPACES',
     line2: 'that tell your story',
     link: '/projects',
   },
   {
-    image: '/galeriaInicial/IMG_0820_SnapseedCopy.jpg',
-    line1: 'CRAFTING SPACES',
-    line2: 'with PURPOSE',
+    image: '/2026/HOME/GALERIA INICIAL/IMG_0820_SnapseedCopy.jpg',
+    line1: 'TIMELESS ELEGANCE',
+    line2: 'in every detail',
     link: '/projects',
   },
   {
-    image: '/galeriaInicial/SUITE 4K.jpg',
-    line1: 'Where DESIGN',
-    line2: 'meets your SOUL',
-    link: '/projects',
+    image: '/2026/HOME/GALERIA INICIAL/SUITE 4K.jpg',
+    line1: 'LIVE',
+    line2: 'BEAUTIFUL',
+    link: '/about',
   },
 ]
 
