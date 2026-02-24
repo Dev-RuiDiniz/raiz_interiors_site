@@ -172,6 +172,32 @@ model Newsletter {
 }
 
 // ============================================
+// INSTAGRAM FEED
+// ============================================
+
+model InstagramPost {
+  id               String    @id @default(cuid())
+  postId           String    @unique
+  shortCode        String?
+  type             String    @default("Image")
+  url              String
+  displayUrl       String
+  videoUrl         String?
+  caption          String?   @db.Text
+  hashtags         String[]  @default([])
+  mentions         String[]  @default([])
+  likesCount       Int       @default(0)
+  commentsCount    Int       @default(0)
+  videoViewCount   Int?
+  dimensionsWidth  Int?
+  dimensionsHeight Int?
+  timestamp        DateTime?
+  isActive         Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
+
+// ============================================
 // CONFIGURAÇÕES DO SITE
 // ============================================
 

@@ -1,82 +1,151 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Instagram } from 'lucide-react'
 import { ArtisticText } from '@/components/ui/artistic-text'
 
-// Placeholder images - will be replaced with Instagram API
-const instagramPosts = [
-  { id: 1, image: '/images/instagram/1.jpg' },
-  { id: 2, image: '/images/instagram/2.jpg' },
-  { id: 3, image: '/images/instagram/3.jpg' },
-  { id: 4, image: '/images/instagram/4.jpg' },
-  { id: 5, image: '/images/instagram/5.jpg' },
-  { id: 6, image: '/images/instagram/6.jpg' },
+interface InstagramPost {
+  id: string
+  postId: string
+  shortCode: string | null
+  type: string
+  url: string
+  displayUrl: string
+  videoUrl: string | null
+  caption: string | null
+  likesCount: number
+  commentsCount: number
+}
+
+// Fallback images caso não tenha posts no banco
+const fallbackImages = [
+  { id: '1', src: '/2026/HOME/GALERIA INICIAL/beautiful and timeless comporta summer house interior design by RAIZ.jpg', alt: 'RAIZ Interiors', url: 'https://www.instagram.com/raiz.interiors.living' },
+  { id: '2', src: '/2026/HOME/GALERIA INICIAL/contemporary minimalist living room suspended staircase and fireplace interior design by RAIZ .jpg', alt: 'RAIZ Interiors', url: 'https://www.instagram.com/raiz.interiors.living' },
+  { id: '3', src: '/2026/HOME/GALERIA INICIAL/contemporary-beach-house-living-room-with-fireplace-interior-design-by-RAIZ.jpg', alt: 'RAIZ Interiors', url: 'https://www.instagram.com/raiz.interiors.living' },
+  { id: '4', src: '/2026/HOME/GALERIA INICIAL/elegant timeless luxury master suite interior design by RAIZ.jpg', alt: 'RAIZ Interiors', url: 'https://www.instagram.com/raiz.interiors.living' },
+  { id: '5', src: '/2026/HOME/GALERIA INICIAL/IMG_0820_SnapseedCopy.jpg', alt: 'RAIZ Interiors', url: 'https://www.instagram.com/raiz.interiors.living' },
+  { id: '6', src: '/2026/HOME/GALERIA INICIAL/SUITE 4K.jpg', alt: 'RAIZ Interiors', url: 'https://www.instagram.com/raiz.interiors.living' },
 ]
 
 export function InstagramFeed() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [isHovered, setIsHovered] = useState(false)
+  const [posts, setPosts] = useState<InstagramPost[]>([])
+  const [loading, setLoading] = useState(true)
+
+  // Buscar posts do banco
+  useEffect(() => {
+    async function fetchPosts() {
+      try {
+        const response = await fetch('/api/instagram/posts?limit=12')
+        if (response.ok) {
+          const data = await response.json()
+          if (data && data.length > 0) {
+            setPosts(data)
+          }
+        }
+      } catch (error) {
+        console.error('Erro ao buscar posts do Instagram:', error)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchPosts()
+  }, [])
+
+  // Auto scroll lento
+  useEffect(() => {
+    const container = scrollRef.current
+    if (!container) return
+
+    let animationId: number
+    let scrollPos = 0
+
+    const scroll = () => {
+      if (!isHovered && container) {
+        scrollPos += 0.5
+        if (scrollPos >= container.scrollWidth / 2) {
+          scrollPos = 0
+        }
+        container.scrollLeft = scrollPos
+      }
+      animationId = requestAnimationFrame(scroll)
+    }
+
+    animationId = requestAnimationFrame(scroll)
+    return () => cancelAnimationFrame(animationId)
+  }, [isHovered])
+
+  // Preparar imagens (posts reais ou fallback)
+  const displayImages = posts.length > 0
+    ? posts.map((post) => ({
+        id: post.id,
+        src: post.displayUrl,
+        alt: post.caption?.substring(0, 50) || 'Post do Instagram @raiz.interiors.living',
+        url: post.url,
+      }))
+    : fallbackImages
+
+  // Duplicar para loop infinito
+  const allImages = [...displayImages, ...displayImages]
+
   return (
-    <section className="bg-stone-50 py-24 lg:py-32">
-      <div className="container mx-auto px-6 lg:px-12">
-        {/* Header */}
+    <section className="py-16 lg:py-24 bg-[#d1c9c7] overflow-hidden relative">
+      {/* Header */}
+      <div className="container mx-auto px-6 lg:px-12 mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto"
         >
           <ArtisticText
-            as="h2"
+            as="p"
             highlightWords={['INSPIRATION', 'DESIGN', 'WORLD', 'INSPIRED']}
-            className="font-inter text-xl sm:text-2xl lg:text-3xl font-light text-stone-800 leading-relaxed"
+            className="font-inter text-sm sm:text-base lg:text-lg font-light text-stone-700 leading-relaxed"
             highlightClassName="text-stone-600"
           >
             INSPIRATION through DESIGN. Welcome to our WORLD and get INSPIRED...
           </ArtisticText>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-8"
-          >
-            <Link
-              href="https://instagram.com/raiz.interiors"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 font-inter text-xs tracking-[0.2em] uppercase text-stone-500 hover:text-stone-900 transition-colors"
-            >
-              <Instagram size={18} />
-              <span>@raiz.interiors</span>
-            </Link>
-          </motion.div>
         </motion.div>
+      </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-4">
-          {instagramPosts.map((post, index) => (
+      {/* Carrossel auto-scroll */}
+      <div
+        ref={scrollRef}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className="flex gap-3 overflow-x-hidden"
+        style={{ scrollBehavior: 'auto' }}
+      >
+        {allImages.map((image, index) => (
+          <Link
+            key={`${image.id}-${index}`}
+            href={image.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0"
+          >
             <motion.div
-              key={post.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="relative group"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
             >
-              <Link
-                href="https://instagram.com/raiz.interiors"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block relative aspect-square overflow-hidden bg-stone-200"
-              >
+              <div className="w-[200px] h-[200px] md:w-[240px] md:h-[240px] relative overflow-hidden bg-stone-300">
                 <Image
-                  src={post.image}
-                  alt={`Instagram post ${post.id}`}
+                  src={image.src}
+                  alt={image.alt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  unoptimized
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement
+                    target.style.display = 'none'
+                  }}
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors flex items-center justify-center">
                   <Instagram
@@ -84,11 +153,15 @@ export function InstagramFeed() {
                     className="text-white opacity-0 group-hover:opacity-100 transition-opacity"
                   />
                 </div>
-              </Link>
+              </div>
             </motion.div>
-          ))}
-        </div>
+          </Link>
+        ))}
       </div>
+
+      {/* Gradient fades nas bordas */}
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#d1c9c7] to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#d1c9c7] to-transparent" />
     </section>
   )
 }

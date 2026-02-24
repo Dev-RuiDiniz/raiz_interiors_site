@@ -1,0 +1,82 @@
+import { NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
+import { getInstagramPosts } from "@/lib/apify";
+
+// POST /api/instagram/sync - Sincronizar posts do Apify para o banco
+export async function POST() {
+  try {
+    const posts = await getInstagramPosts();
+
+    if (!posts || posts.length === 0) {
+      return NextResponse.json(
+        { error: "Nenhum post encontrado no Apify" },
+        { status: 404 }
+      );
+    }
+
+    let created = 0;
+    let updated = 0;
+    let skipped = 0;
+
+    for (const post of posts) {
+      try {
+        const existing = await prisma!.instagramPost.findUnique({
+          where: { postId: post.id },
+        });
+
+        const displayUrl = post.displayUrl || post.images?.[0] || "";
+
+        const postData = {
+          postId: post.id,
+          shortCode: post.shortCode,
+          type: post.type || "Image",
+          url: post.url,
+          displayUrl,
+          videoUrl: post.videoUrl || null,
+          caption: post.caption || null,
+          hashtags: post.hashtags || [],
+          mentions: post.mentions || [],
+          likesCount: post.likesCount || 0,
+          commentsCount: post.commentsCount || 0,
+          videoViewCount: post.videoViewCount || null,
+          dimensionsWidth: post.dimensionsWidth || null,
+          dimensionsHeight: post.dimensionsHeight || null,
+          timestamp: post.timestamp ? new Date(post.timestamp) : null,
+        };
+
+        if (existing) {
+          await prisma!.instagramPost.update({
+            where: { postId: post.id },
+            data: postData,
+          });
+          updated++;
+        } else {
+          await prisma!.instagramPost.create({
+            data: postData,
+          });
+          created++;
+        }
+      } catch (err) {
+        console.error(`Erro ao processar post ${post.id}:`, err);
+        skipped++;
+      }
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: `Sincronização concluída`,
+      stats: {
+        total: posts.length,
+        created,
+        updated,
+        skipped,
+      },
+    });
+  } catch (error) {
+    console.error("Erro na sincronização:", error);
+    return NextResponse.json(
+      { error: "Erro na sincronização" },
+      { status: 500 }
+    );
+  }
+}
