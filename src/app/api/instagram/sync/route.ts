@@ -1,10 +1,18 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
 import { getInstagramPosts } from "@/lib/apify";
 
 // POST /api/instagram/sync - Sincronizar posts do Apify para o banco
 export async function POST() {
   try {
+    const { prisma } = await import("@/lib/prisma");
+    if (!prisma) {
+      return NextResponse.json(
+        { error: "Database not configured" },
+        { status: 503 }
+      );
+    }
+
+    const db = prisma as any;
     const posts = await getInstagramPosts();
 
     if (!posts || posts.length === 0) {
@@ -20,7 +28,7 @@ export async function POST() {
 
     for (const post of posts) {
       try {
-        const existing = await prisma!.instagramPost.findUnique({
+        const existing = await db.instagramPost.findUnique({
           where: { postId: post.id },
         });
 
@@ -45,13 +53,13 @@ export async function POST() {
         };
 
         if (existing) {
-          await prisma!.instagramPost.update({
+          await db.instagramPost.update({
             where: { postId: post.id },
             data: postData,
           });
           updated++;
         } else {
-          await prisma!.instagramPost.create({
+          await db.instagramPost.create({
             data: postData,
           });
           created++;
