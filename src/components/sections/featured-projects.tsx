@@ -21,7 +21,7 @@ interface FeaturedProjectsProps {
 
 export function FeaturedProjects({ projects }: FeaturedProjectsProps) {
   return (
-    <section className="bg-[#E3DFDD] py-16 lg:py-20">
+    <section className="bg-[#e3dfdc] py-16 lg:py-20">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Header - Minimalista, sem h1 grande */}
         <motion.div

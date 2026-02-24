@@ -7,7 +7,7 @@ import { ArtisticText } from '@/components/ui/artistic-text'
 
 export function ServicesPreview() {
   return (
-    <section className="bg-[#CFCAC7] py-24 lg:py-32">
+    <section className="bg-[#1b1815] py-24 lg:py-32">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: Text */}
@@ -17,7 +17,7 @@ export function ServicesPreview() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="font-inter text-xs tracking-[0.3em] uppercase text-stone-600">
+            <span className="font-inter text-xs tracking-[0.3em] uppercase text-white/60">
               Our Services
             </span>
             
@@ -25,8 +25,8 @@ export function ServicesPreview() {
               <ArtisticText
                 as="h2"
                 highlightWords={['DESIGN', 'STUDIO', 'BESPOKE', 'QUALITY', 'PRECISION', 'PROFESSIONALISM']}
-                className="font-inter text-xl sm:text-2xl lg:text-3xl font-light text-stone-800 leading-relaxed"
-                highlightClassName="text-stone-600"
+                className="font-inter text-xl sm:text-2xl lg:text-3xl font-light text-white leading-relaxed"
+                highlightClassName="text-white/70"
               >
                 We are a DESIGN STUDIO dedicated to delivering a BESPOKE start-to-finish DESIGN SERVICE, crafted with QUALITY, PRECISION and PROFESSIONALISM.
               </ArtisticText>
@@ -41,7 +41,7 @@ export function ServicesPreview() {
             >
               <Link
                 href="/services"
-                className="inline-flex items-center gap-3 font-inter text-xs tracking-[0.2em] uppercase text-stone-600 hover:text-stone-800 transition-colors group"
+                className="inline-flex items-center gap-3 font-inter text-xs tracking-[0.2em] uppercase text-white/60 hover:text-white transition-colors group"
               >
                 <span>Explore Services</span>
                 <ArrowRight
@@ -70,14 +70,14 @@ export function ServicesPreview() {
               >
                 <Link
                   href={`/services/${service.slug}`}
-                  className="group flex items-center justify-between py-6 border-b border-stone-500/20 hover:border-stone-500/40 transition-colors"
+                  className="group flex items-center justify-between py-6 border-b border-white/15 hover:border-white/30 transition-colors"
                 >
-                  <span className="font-cormorant text-xl lg:text-2xl text-stone-700 group-hover:text-stone-900 transition-colors">
+                  <span className="font-cormorant text-xl lg:text-2xl text-white/80 group-hover:text-white transition-colors">
                     {service.title}
                   </span>
                   <ArrowRight
                     size={20}
-                    className="text-stone-400 group-hover:text-stone-700 transform group-hover:translate-x-2 transition-all"
+                    className="text-white/40 group-hover:text-white transform group-hover:translate-x-2 transition-all"
                   />
                 </Link>
               </motion.div>

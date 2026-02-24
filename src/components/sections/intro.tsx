@@ -7,7 +7,7 @@ import { ArtisticText } from '@/components/ui/artistic-text'
 
 export function IntroSection() {
   return (
-    <section className="bg-[#E3DFDD] py-20 lg:py-28">
+    <section className="bg-[#e3dfdc] py-20 lg:py-28">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div

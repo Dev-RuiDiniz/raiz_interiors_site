@@ -194,32 +194,36 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Content: descrição à esquerda + 2 imagens verticais à direita */}
+      {/* Content: layout em L — texto em cima, imagens esq + bullets dir em baixo */}
       <section className="py-16 lg:py-24 bg-[#E3DFDD]">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Left: Description */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="font-cormorant text-xl lg:text-2xl font-light text-stone-800 mb-6">
-                What We <span className="italic">Offer</span>
-              </h2>
-              <div className="font-inter text-sm text-stone-600 leading-relaxed whitespace-pre-line">
-                {service.description}
-              </div>
-            </motion.div>
 
-            {/* Right: 2 imagens verticais lado a lado */}
+          {/* Topo: What We Offer + descrição (full width, alinhado esquerda) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-xl mb-12"
+          >
+            <h2 className="font-cormorant text-xl lg:text-2xl font-light text-stone-800 mb-6">
+              What We <span className="italic">Offer</span>
+            </h2>
+            <div className="font-inter text-sm text-stone-600 leading-relaxed whitespace-pre-line">
+              {service.description}
+            </div>
+          </motion.div>
+
+          {/* Baixo: 2 imagens verticais (esq) + bullets (dir) */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            {/* Esquerda: 2 imagens verticais lado a lado */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="grid grid-cols-2 gap-3"
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="grid grid-cols-2 gap-4"
             >
               {service.images.map((image, index) => (
                 <div
@@ -235,33 +239,28 @@ export default function ServiceDetailPage({ params }: PageProps) {
                 </div>
               ))}
             </motion.div>
-          </div>
 
-          {/* Bullet points abaixo */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-16 pt-12 border-t border-stone-300"
-          >
-            <h3 className="font-inter text-[10px] tracking-[0.2em] uppercase text-stone-500 mb-8">
-              Services Include
-            </h3>
-            <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-4">
-              {service.features.map((feature, index) => (
-                <li
-                  key={index}
-                  className="flex items-center gap-3"
-                >
-                  <div className="w-1.5 h-1.5 rounded-full bg-stone-500 shrink-0" />
-                  <span className="font-inter text-xs text-stone-700">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+            {/* Direita: Services Include + bullets */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h3 className="font-inter text-[10px] tracking-[0.2em] uppercase text-stone-500 mb-6">
+                Services Include
+              </h3>
+              <ul className="space-y-3">
+                {service.features.map((feature, index) => (
+                  <li key={index} className="flex items-center gap-3">
+                    <span className="font-inter text-xs text-stone-400 shrink-0">—</span>
+                    <span className="font-inter text-xs text-stone-700">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 

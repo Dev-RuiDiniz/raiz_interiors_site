@@ -20,9 +20,9 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
 
-  // Páginas com hero escuro (texto branco no header) - apenas Home tem hero com imagem
+  // Páginas com hero escuro (texto branco no header)
   const darkHeroPages = ['/']
-  const hasDarkHero = darkHeroPages.includes(pathname)
+  const hasDarkHero = darkHeroPages.includes(pathname) || pathname.startsWith('/projects/')
 
   // Se não tem hero escuro, sempre usar texto escuro
   const useDarkText = !hasDarkHero || isScrolled || isOpen

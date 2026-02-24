@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react'
 
 export function AboutPreview() {
   return (
-    <section className="bg-[#CFCAC7] py-20 lg:py-28">
+    <section className="bg-[#d1c9c7] py-20 lg:py-28">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left: Image */}

@@ -75,7 +75,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section - Frase minimalista */}
-      <section className="relative pt-32 pb-8 lg:pt-40 lg:pb-12 bg-[#E3DFDD]">
+      <section className="relative pt-32 pb-8 lg:pt-40 lg:pb-12 bg-[#e3dfdc]">
         <div className="container mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -92,7 +92,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid - 3 colunas, títulos centrados */}
-      <section className="py-8 lg:py-12 bg-[#E3DFDD]">
+      <section className="py-8 lg:py-12 bg-[#e3dfdc]">
         <div className="px-2 lg:px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 lg:gap-3">
             {services.map((service, index) => (
@@ -113,14 +113,14 @@ export default function ServicesPage() {
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+                  <div className="absolute inset-0 bg-stone-900/20 group-hover:bg-stone-900/30 transition-opacity duration-500" />
                   
                   {/* Content - Centrado */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                    <h3 className="font-cormorant text-2xl lg:text-3xl text-white uppercase tracking-wide">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+                    <h3 className="font-cormorant text-sm sm:text-base lg:text-lg font-light text-white leading-tight tracking-wide uppercase">
                       {service.title}
                     </h3>
-                    <p className="mt-3 font-inter text-xs text-white/80 max-w-xs leading-relaxed">
+                    <p className="font-inter text-[8px] sm:text-[9px] tracking-[0.12em] uppercase text-white/70 mt-1.5">
                       {service.excerpt}
                     </p>
                   </div>
@@ -132,7 +132,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section - Com numeração e linhas conectoras */}
-      <section className="py-16 lg:py-24 bg-[#CFCAC7]">
+      <section className="py-16 lg:py-24 bg-[#d1c9c7]">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -162,7 +162,7 @@ export default function ServicesPage() {
                   className="text-center relative"
                 >
                   {/* Número */}
-                  <div className="relative z-10 w-12 h-12 rounded-full bg-[#CFCAC7] border border-stone-500/40 flex items-center justify-center mx-auto mb-4">
+                  <div className="relative z-10 w-12 h-12 rounded-full bg-[#d1c9c7] border border-stone-500/40 flex items-center justify-center mx-auto mb-4">
                     <span className="font-cormorant text-lg text-stone-700">{step.number}</span>
                   </div>
                   <h4 className="font-cormorant text-base lg:text-lg text-stone-800">
@@ -179,7 +179,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section - Menos agressivo */}
-      <section className="py-20 lg:py-28 bg-[#B4ADA8]">
+      <section className="py-20 lg:py-28 bg-[#b5adaa]">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

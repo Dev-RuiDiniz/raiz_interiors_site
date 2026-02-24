@@ -22,7 +22,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#B4ADA8] text-stone-800">
+    <footer className="bg-[#b5adaa] text-stone-800">
       {/* Newsletter Section - Desligado por enquanto */}
 
       {/* Main Footer */}
