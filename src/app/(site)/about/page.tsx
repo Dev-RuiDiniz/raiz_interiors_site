@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import { InstagramFeed } from '@/components/sections/instagram-feed'
 
 const values = [
   {
@@ -24,14 +25,6 @@ const values = [
   },
 ]
 
-const instagramPosts = [
-  { id: 1, image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80' },
-  { id: 2, image: 'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=400&q=80' },
-  { id: 3, image: 'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=400&q=80' },
-  { id: 4, image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400&q=80' },
-  { id: 5, image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80' },
-  { id: 6, image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80' },
-]
 
 export default function AboutPage() {
   return (
@@ -167,47 +160,8 @@ export default function AboutPage() {
       </section>
 
 
-      {/* Instagram Section */}
-      <section className="py-12 lg:py-16 bg-[#CFCAC7]">
-        <div className="container mx-auto px-6 lg:px-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-8"
-          >
-            <p className="font-inter text-sm text-stone-600">
-              INSPIRATION through DESIGN. Welcome to our WORLD and get INSPIRED...
-            </p>
-          </motion.div>
-
-          <a 
-            href="https://www.instagram.com/raiz.interiors.living"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-4 group"
-          >
-            {instagramPosts.map((post, index) => (
-              <motion.div
-                key={post.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative aspect-square overflow-hidden bg-stone-200"
-              >
-                <Image
-                  src={post.image}
-                  alt={`Instagram post ${post.id}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </motion.div>
-            ))}
-          </a>
-        </div>
-      </section>
+      {/* Instagram Feed - Auto-scroll carrossel */}
+      <InstagramFeed />
 
       {/* CTA Section - Altura reduzida */}
       <section className="py-10 lg:py-12 bg-[#B4ADA8]">
