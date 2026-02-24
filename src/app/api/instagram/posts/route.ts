@@ -7,7 +7,7 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const limit = parseInt(searchParams.get("limit") || "12");
 
-    const posts = await prisma.instagramPost.findMany({
+    const posts = await prisma!.instagramPost.findMany({
       where: { isActive: true },
       orderBy: { timestamp: "desc" },
       take: limit,
