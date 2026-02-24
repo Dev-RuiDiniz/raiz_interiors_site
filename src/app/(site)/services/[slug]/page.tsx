@@ -11,13 +11,9 @@ const servicesData: Record<string, ServiceDetail> = {
     slug: 'architecture',
     title: 'Architecture',
     subtitle: 'Shaping Spaces, Defining Experiences',
-    description: `Our architectural services encompass the complete journey from initial concept 
-    to final construction. We believe that great architecture emerges from a deep understanding 
-    of how people live, work, and interact with their environments.
-    
-    Every project begins with listening – to your aspirations, your lifestyle, and your vision 
-    for the space. From there, we develop solutions that are both functionally excellent and 
-    aesthetically inspiring.`,
+    description: `From concept to completion, we design architectural solutions that balance form and function. Our architectural services encompass the complete journey from initial concept to final construction.
+
+Every project begins with listening – to your aspirations, your lifestyle, and your vision for the space. From there, we develop solutions that are both functionally excellent and aesthetically inspiring.`,
     features: [
       'New construction design',
       'Renovations and extensions',
@@ -27,20 +23,17 @@ const servicesData: Record<string, ServiceDetail> = {
       'Sustainable design solutions',
     ],
     images: [
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
+      '/2026/SERVICES/Architeture.JPG',
+      '/2026/SERVICES/architecture-and-interior-design-projects-workspace-by-RAIZ .jpg',
     ],
   },
   'interior-design': {
     slug: 'interior-design',
     title: 'Interior Design',
     subtitle: 'Creating Environments That Inspire',
-    description: `Interior design is where vision meets reality. We create cohesive, thoughtful 
-    interiors that reflect your personality while optimizing functionality and flow.
-    
-    Our approach combines careful space planning with a keen eye for materials, colors, and 
-    textures. The result is spaces that feel both curated and lived-in, sophisticated yet 
-    welcoming.`,
+    description: `Creating cohesive interior environments that reflect your lifestyle and aspirations. Interior design is where vision meets reality.
+
+Our approach combines careful space planning with a keen eye for materials, colors, and textures. The result is spaces that feel both curated and lived-in, sophisticated yet welcoming.`,
     features: [
       'Space planning and layout design',
       'Material and finish selection',
@@ -50,20 +43,17 @@ const servicesData: Record<string, ServiceDetail> = {
       'Art and accessory curation',
     ],
     images: [
-      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
+      '/2026/SERVICES/Interior Design.jpg',
+      '/2026/SERVICES/Decoration.jpg',
     ],
   },
   'decoration': {
     slug: 'decoration',
     title: 'Decoration',
     subtitle: 'The Art of Personal Expression',
-    description: `Decoration is the layer that brings personality and warmth to any space. 
-    We source and curate furniture, art, textiles, and objects that tell your story and 
-    create an atmosphere uniquely yours.
-    
-    Whether refreshing a single room or styling an entire home, we bring an expert eye 
-    and access to exclusive sources to elevate your interiors.`,
+    description: `Curating furniture, art, and accessories to bring your space to life with personality. Decoration is the layer that brings warmth and uniqueness to any space.
+
+Whether refreshing a single room or styling an entire home, we bring an expert eye and access to exclusive sources to elevate your interiors.`,
     features: [
       'Furniture selection and sourcing',
       'Art advisory and acquisition',
@@ -73,20 +63,37 @@ const servicesData: Record<string, ServiceDetail> = {
       'Final styling and installation',
     ],
     images: [
-      'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80',
-      'https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=800&q=80',
+      '/2026/SERVICES/Decoration.jpg',
+      '/2026/SERVICES/Bespoke Furniture.jpg',
+    ],
+  },
+  'bespoke-furniture': {
+    slug: 'bespoke-furniture',
+    title: 'Bespoke Furniture',
+    subtitle: 'Crafted for Your Space, Made to Last',
+    description: `Custom furniture designed and crafted to perfectly fit your unique space and personal style. Each piece is conceived with purpose, balancing aesthetics and function.
+
+From concept to production, we oversee every detail to ensure the result is a truly one-of-a-kind piece that elevates your interior.`,
+    features: [
+      'Custom furniture design',
+      'Material and finish selection',
+      'Production management',
+      'Built-in solutions',
+      'Upholstery and textile selection',
+      'Installation and styling',
+    ],
+    images: [
+      '/2026/SERVICES/Bespoke Furniture.jpg',
+      '/2026/SERVICES/Interior Design.jpg',
     ],
   },
   'consultancy': {
     slug: 'consultancy',
     title: 'Consultancy',
     subtitle: 'Expert Guidance, Tailored Solutions',
-    description: `Not every project requires full-service design. Our consultancy service 
-    provides expert advice and direction for clients who want professional input on specific 
-    aspects of their project.
-    
-    Whether you need help with a challenging layout, material decisions, or a second opinion 
-    on your design direction, we're here to guide you.`,
+    description: `Expert guidance on design decisions, materials, and spatial planning for your project. Not every project requires full-service design.
+
+Whether you need help with a challenging layout, material decisions, or a second opinion on your design direction, we're here to guide you with clarity and expertise.`,
     features: [
       'Design direction and concept development',
       'Material and color consultation',
@@ -96,19 +103,17 @@ const servicesData: Record<string, ServiceDetail> = {
       'Project timeline guidance',
     ],
     images: [
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80',
-      'https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80',
+      '/2026/SERVICES/Consultancy.jpg',
+      '/2026/SERVICES/architecture-and-interior-design-projects-workspace-by-RAIZ .jpg',
     ],
   },
-  'staging': {
-    slug: 'staging',
-    title: 'Staging',
+  'styling-staging': {
+    slug: 'styling-staging',
+    title: 'Styling & Staging',
     subtitle: 'Maximizing Property Potential',
-    description: `First impressions matter. Our staging service transforms properties to 
-    showcase their full potential, helping sellers achieve faster sales and better prices.
-    
-    We understand what buyers are looking for and create environments that allow them 
-    to envision themselves in the space. Strategic styling that makes all the difference.`,
+    description: `Transforming properties for sale or rent with strategic styling that maximizes appeal. First impressions matter.
+
+We understand what buyers are looking for and create environments that allow them to envision themselves in the space. Strategic styling that makes all the difference.`,
     features: [
       'Property assessment and strategy',
       'Furniture rental and placement',
@@ -118,8 +123,28 @@ const servicesData: Record<string, ServiceDetail> = {
       'Vacant and occupied staging',
     ],
     images: [
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
-      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80',
+      '/2026/SERVICES/Styling & Staging.png',
+      '/2026/SERVICES/Decoration.jpg',
+    ],
+  },
+  'staging': {
+    slug: 'staging',
+    title: 'Styling & Staging',
+    subtitle: 'Maximizing Property Potential',
+    description: `Transforming properties for sale or rent with strategic styling that maximizes appeal. First impressions matter.
+
+We understand what buyers are looking for and create environments that allow them to envision themselves in the space. Strategic styling that makes all the difference.`,
+    features: [
+      'Property assessment and strategy',
+      'Furniture rental and placement',
+      'Accessory styling',
+      'Photography preparation',
+      'Open house styling',
+      'Vacant and occupied staging',
+    ],
+    images: [
+      '/2026/SERVICES/Styling & Staging.png',
+      '/2026/SERVICES/Decoration.jpg',
     ],
   },
 }
@@ -169,10 +194,10 @@ export default function ServiceDetailPage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* Content */}
+      {/* Content: descrição à esquerda + 2 imagens verticais à direita */}
       <section className="py-16 lg:py-24 bg-[#E3DFDD]">
         <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left: Description */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -188,61 +213,55 @@ export default function ServiceDetailPage({ params }: PageProps) {
               </div>
             </motion.div>
 
-            {/* Right: Features - Pontinhos em vez de viñetas */}
+            {/* Right: 2 imagens verticais lado a lado */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              className="grid grid-cols-2 gap-3"
             >
-              <h3 className="font-inter text-[10px] tracking-[0.2em] uppercase text-stone-500 mb-6">
-                Services Include
-              </h3>
-              <ul className="space-y-3">
-                {service.features.map((feature, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: 10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.3 + index * 0.05 }}
-                    className="flex items-center gap-3"
-                  >
-                    {/* Pontinho minimalista */}
-                    <div className="w-1.5 h-1.5 rounded-full bg-stone-500 shrink-0" />
-                    <span className="font-inter text-xs text-stone-700">
-                      {feature}
-                    </span>
-                  </motion.li>
-                ))}
-              </ul>
+              {service.images.map((image, index) => (
+                <div
+                  key={index}
+                  className="relative aspect-[3/4] overflow-hidden bg-stone-300"
+                >
+                  <Image
+                    src={image}
+                    alt={`${service.title} ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ))}
             </motion.div>
           </div>
-        </div>
-      </section>
 
-      {/* Images */}
-      <section className="py-8 lg:py-12 bg-[#CFCAC7]">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {service.images.map((image, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative aspect-[4/3] overflow-hidden bg-stone-300"
-              >
-                <Image
-                  src={image}
-                  alt={`${service.title} example ${index + 1}`}
-                  fill
-                  className="object-cover"
-                />
-              </motion.div>
-            ))}
-          </div>
+          {/* Bullet points abaixo */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-16 pt-12 border-t border-stone-300"
+          >
+            <h3 className="font-inter text-[10px] tracking-[0.2em] uppercase text-stone-500 mb-8">
+              Services Include
+            </h3>
+            <ul className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-4">
+              {service.features.map((feature, index) => (
+                <li
+                  key={index}
+                  className="flex items-center gap-3"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-stone-500 shrink-0" />
+                  <span className="font-inter text-xs text-stone-700">
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
       </section>
 

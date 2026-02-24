@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
@@ -57,24 +58,29 @@ export function Header() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="flex items-center gap-3"
               >
-                <span
+                {/* Logo white - visível quando no topo (home sem scroll) */}
+                <Image
+                  src="/raizlogo-white.png"
+                  alt="RAIZ Interiors"
+                  width={220}
+                  height={80}
                   className={cn(
-                    'font-cormorant text-2xl lg:text-3xl font-light tracking-[0.2em] transition-colors duration-300',
-                    useDarkText ? 'text-stone-900' : 'text-white'
+                    'object-contain transition-all duration-500 absolute top-1/2 -translate-y-1/2',
+                    useDarkText ? 'opacity-0 pointer-events-none' : 'opacity-100'
                   )}
-                >
-                  RAIZ
-                </span>
-                <span
+                />
+                {/* Logo preta - visível no scroll e páginas internas */}
+                <Image
+                  src="/raizlogo-preta.png"
+                  alt="RAIZ Interiors"
+                  width={220}
+                  height={80}
                   className={cn(
-                    'hidden sm:block font-inter text-[10px] tracking-[0.3em] uppercase transition-colors duration-300',
-                    useDarkText ? 'text-stone-500' : 'text-white/70'
+                    'object-contain transition-all duration-500',
+                    useDarkText ? 'opacity-100' : 'opacity-0'
                   )}
-                >
-                  Interiors & Living Studio
-                </span>
+                />
               </motion.div>
             </Link>
 
