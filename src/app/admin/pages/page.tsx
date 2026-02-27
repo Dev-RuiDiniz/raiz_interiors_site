@@ -6,7 +6,6 @@ Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a expo
 
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
@@ -17,9 +16,7 @@ import {
   Home,
   Users,
   Briefcase,
-  Phone,
   Lock,
-  MoreVertical,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -61,15 +58,6 @@ const pages = [
     sections: ['Hero', 'Philosophy', 'Founder', 'Values', 'Instagram', 'CTA'],
   },
   {
-    id: 'contact',
-    title: 'Contact',
-    slug: '/contact',
-    icon: Phone,
-    status: 'published',
-    lastModified: '2024-01-11',
-    sections: ['Hero', 'Contact Info', 'Form', 'Map'],
-  },
-  {
     id: 'privacy',
     title: 'Privacy Policy',
     slug: '/privacy',
@@ -81,8 +69,6 @@ const pages = [
 ]
 
 export default function PagesPage() {
-  const [selectedPage, setSelectedPage] = useState<string | null>(null)
-
   return (
     <div className="space-y-6">
       {/* Header */}
