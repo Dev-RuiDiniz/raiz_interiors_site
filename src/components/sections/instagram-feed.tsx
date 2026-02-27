@@ -99,7 +99,7 @@ export function InstagramFeed() {
   const allImages = [...displayImages, ...displayImages]
 
   return (
-    <section className="py-16 lg:py-24 bg-[#d1c9c7] overflow-hidden relative">
+    <section className="py-16 lg:py-24 bg-[#E3DFDD] overflow-hidden relative">
       {/* Header */}
       <div className="container mx-auto px-6 lg:px-12 mb-10">
         <motion.div
@@ -166,8 +166,8 @@ export function InstagramFeed() {
       </div>
 
       {/* Gradient fades nas bordas */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#d1c9c7] to-transparent" />
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#d1c9c7] to-transparent" />
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#E3DFDD] to-transparent" />
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#E3DFDD] to-transparent" />
     </section>
   )
 }

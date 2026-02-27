@@ -138,7 +138,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section - Com numeração e linhas conectoras */}
-      <section className="py-16 lg:py-24 bg-[#d1c9c7]">
+      <section className="py-16 lg:py-24 bg-[#e3dfdc]">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -155,7 +155,7 @@ export default function ServicesPage() {
           {/* Process Steps com linhas conectoras */}
           <div className="relative">
             {/* Linha conectora horizontal (desktop) */}
-            <div className="hidden lg:block absolute top-6 left-[10%] right-[10%] h-px bg-stone-500/40" />
+            <div className="hidden lg:block absolute top-6 left-[10%] right-[10%] h-px bg-stone-500/30" />
             
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-4">
               {processSteps.map((step, index) => (
@@ -168,10 +168,10 @@ export default function ServicesPage() {
                   className="text-center relative"
                 >
                   {/* Número */}
-                  <div className="relative z-10 w-12 h-12 rounded-full bg-[#d1c9c7] border border-stone-500/40 flex items-center justify-center mx-auto mb-4">
-                    <span className="font-cormorant text-lg text-stone-700">{step.number}</span>
+                  <div className="relative z-10 w-12 h-12 rounded-full bg-[#f4efec] border border-stone-500/30 flex items-center justify-center mx-auto mb-4">
+                    <span className="font-cormorant text-lg text-stone-600">{step.number}</span>
                   </div>
-                  <h4 className="font-cormorant text-base lg:text-lg text-stone-800">
+                  <h4 className="font-cormorant text-base lg:text-lg text-stone-900">
                     {step.title}
                   </h4>
                   <p className="mt-2 font-inter text-[10px] lg:text-xs text-stone-600 leading-relaxed max-w-[180px] mx-auto">
@@ -185,7 +185,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section - Menos agressivo */}
-      <section className="py-20 lg:py-28 bg-[#b5adaa]">
+      <section className="py-20 lg:py-28 bg-[#d1c9c7]">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

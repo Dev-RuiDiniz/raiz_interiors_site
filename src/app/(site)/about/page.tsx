@@ -78,7 +78,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Values - Movido para cima */}
-      <section className="py-12 lg:py-16 bg-[#CFCAC7]">
+      <section className="py-12 lg:py-16 bg-[#E3DFDD]">
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -170,7 +170,7 @@ export default function AboutPage() {
       <InstagramFeed />
 
       {/* CTA Section - Altura reduzida */}
-      <section className="py-10 lg:py-12 bg-[#B4ADA8]">
+      <section className="py-10 lg:py-12 bg-[#d1c9c7]">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

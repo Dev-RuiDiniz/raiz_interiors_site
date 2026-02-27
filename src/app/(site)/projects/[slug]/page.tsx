@@ -342,6 +342,10 @@ interface PageProps {
 export default function ProjectDetailPage({ params }: PageProps) {
   const { slug } = use(params)
   const project = projectsData[slug] || defaultProject
+  const descriptionBgClass =
+    project.slug === 'summer-house-comporta' || project.slug === 'contemporary-city-house'
+      ? 'bg-[#CFCAC7]'
+      : 'bg-[#E3DFDD]'
 
   return (
     <>
@@ -375,7 +379,7 @@ export default function ProjectDetailPage({ params }: PageProps) {
       </section>
 
       {/* Project Description - Texto corrido sem título */}
-      <section className="py-12 lg:py-16 bg-[#E3DFDD]">
+      <section className={`py-12 lg:py-16 ${descriptionBgClass}`}>
         <div className="container mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -271,7 +271,7 @@ export default function ServiceDetailPage({ params }: PageProps) {
       </section>
 
       {/* CTA - Menos agressivo */}
-      <section className="py-16 lg:py-24 bg-[#B4ADA8]">
+      <section className="py-16 lg:py-24 bg-[#d1c9c7]">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

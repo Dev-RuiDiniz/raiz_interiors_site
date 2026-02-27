@@ -48,13 +48,13 @@ const featuredProjects = [
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-[#e3dfdc]">
       <Hero />
       <IntroSection />
       <FeaturedProjects projects={featuredProjects} />
       <ServicesPreview />
       <AboutPreview />
-    </>
+    </div>
   )
 }
 
