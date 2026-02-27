@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/ui/badge.tsx
+Objetivo: Componente de UI reutilizavel.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -44,3 +50,4 @@ function Badge({
 }
 
 export { Badge, badgeVariants }
+

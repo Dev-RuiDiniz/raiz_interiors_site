@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/sections/about-preview.tsx
+Objetivo: Secao de interface usada em paginas publicas.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import Link from 'next/link'
@@ -72,3 +78,4 @@ export function AboutPreview() {
     </section>
   )
 }
+

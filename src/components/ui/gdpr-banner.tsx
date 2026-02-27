@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/ui/gdpr-banner.tsx
+Objetivo: Componente de UI reutilizavel.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -176,3 +182,4 @@ export function GDPRBanner() {
     </AnimatePresence>
   )
 }
+

@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/(site)/contact/page.tsx
+Objetivo: Pagina publica do site (rota App Router).
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { useState } from 'react'
@@ -312,3 +318,4 @@ export default function ContactPage() {
     </>
   )
 }
+

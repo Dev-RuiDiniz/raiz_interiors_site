@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/ui/sheet.tsx
+Objetivo: Componente de UI reutilizavel.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 "use client"
 
 import * as React from "react"
@@ -137,3 +143,4 @@ export {
   SheetTitle,
   SheetDescription,
 }
+

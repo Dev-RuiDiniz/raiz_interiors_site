@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/(site)/services/page.tsx
+Objetivo: Pagina publica do site (rota App Router).
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import Image from 'next/image'
@@ -202,3 +208,4 @@ export default function ServicesPage() {
     </>
   )
 }
+

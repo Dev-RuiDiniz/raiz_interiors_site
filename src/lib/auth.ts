@@ -1,3 +1,9 @@
+/*
+Arquivo: src/lib/auth.ts
+Objetivo: Funcoes utilitarias e integracoes compartilhadas.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
@@ -64,3 +70,4 @@ export const authOptions: NextAuthOptions = {
   },
   secret: process.env.NEXTAUTH_SECRET,
 }
+

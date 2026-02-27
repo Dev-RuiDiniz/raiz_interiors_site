@@ -1,3 +1,9 @@
+/*
+Arquivo: src/lib/apify.ts
+Objetivo: Funcoes utilitarias e integracoes compartilhadas.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 // Apify Instagram Scraper Integration
 
 const APIFY_API_TOKEN = process.env.APIFY_API_TOKEN;
@@ -156,3 +162,4 @@ export async function getRunStatus(runId: string): Promise<ApifyRunResult | null
     return null;
   }
 }
+

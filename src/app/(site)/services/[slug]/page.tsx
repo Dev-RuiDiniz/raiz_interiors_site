@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/(site)/services/[slug]/page.tsx
+Objetivo: Pagina publica do site (rota App Router).
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { use } from 'react'
@@ -288,3 +294,4 @@ export default function ServiceDetailPage({ params }: PageProps) {
     </>
   )
 }
+

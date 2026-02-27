@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/(auth)/login/page.tsx
+Objetivo: Pagina de autenticacao.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { useState } from 'react'
@@ -233,3 +239,4 @@ export default function LoginPage() {
     </div>
   )
 }
+

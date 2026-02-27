@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/ui/floating-chat.tsx
+Objetivo: Componente de UI reutilizavel.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { useState } from 'react'
@@ -117,3 +123,4 @@ export function FloatingChat() {
     </>
   )
 }
+

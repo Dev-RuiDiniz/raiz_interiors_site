@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/ui/label.tsx
+Objetivo: Componente de UI reutilizavel.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 "use client"
 
 import * as React from "react"
@@ -22,3 +28,4 @@ function Label({
 }
 
 export { Label }
+

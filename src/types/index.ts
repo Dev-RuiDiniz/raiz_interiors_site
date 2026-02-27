@@ -1,3 +1,9 @@
+/*
+Arquivo: src/types/index.ts
+Objetivo: Tipos e contratos TypeScript centralizados.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 // ===========================================
 // RAIZ INTERIORS - TYPES
 // ===========================================
@@ -94,3 +100,4 @@ export interface ApiResponse<T> {
   data?: T
   error?: string
 }
+

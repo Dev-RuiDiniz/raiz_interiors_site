@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/api/instagram/sync/route.ts
+Objetivo: Endpoint de API do Next.js (App Router).
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import { NextResponse } from "next/server";
 import { getInstagramPosts } from "@/lib/apify";
 
@@ -88,3 +94,4 @@ export async function POST() {
     );
   }
 }
+

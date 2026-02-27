@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/ui/artistic-text.tsx
+Objetivo: Componente de UI reutilizavel.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { motion } from 'framer-motion'
@@ -130,3 +136,4 @@ export function RevealText({ children, className, delay = 0 }: RevealTextProps) 
     </div>
   )
 }
+

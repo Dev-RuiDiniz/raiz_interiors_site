@@ -1,3 +1,9 @@
+/*
+Arquivo: next.config.ts
+Objetivo: Configuracao principal do Next.js.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -17,3 +23,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+

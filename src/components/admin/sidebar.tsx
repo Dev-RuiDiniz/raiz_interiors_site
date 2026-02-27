@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/admin/sidebar.tsx
+Objetivo: Componente de interface do painel administrativo.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { useState } from 'react'
@@ -177,3 +183,4 @@ export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
     </motion.aside>
   )
 }
+

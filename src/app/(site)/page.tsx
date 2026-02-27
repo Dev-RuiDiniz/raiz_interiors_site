@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/(site)/page.tsx
+Objetivo: Arquivo de codigo da aplicacao.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import { Hero } from '@/components/sections/hero'
 import { IntroSection } from '@/components/sections/intro'
 import { FeaturedProjects } from '@/components/sections/featured-projects'
@@ -51,3 +57,4 @@ export default function Home() {
     </>
   )
 }
+

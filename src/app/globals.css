@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/globals.css
+Objetivo: Estilos globais e variaveis visuais da aplicacao.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -146,3 +152,4 @@ html {
 ::selection {
   background-color: rgba(120, 113, 108, 0.3);
 }
+

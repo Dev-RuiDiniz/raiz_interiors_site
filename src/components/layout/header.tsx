@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/layout/header.tsx
+Objetivo: Componente estrutural de layout (ex.: header/footer).
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -181,3 +187,4 @@ export function Header() {
     </>
   )
 }
+

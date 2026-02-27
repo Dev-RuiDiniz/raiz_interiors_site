@@ -1,3 +1,9 @@
+/*
+Arquivo: src/lib/prisma.ts
+Objetivo: Funcoes utilitarias e integracoes compartilhadas.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import { PrismaClient } from '@prisma/client'
 
 const globalForPrisma = globalThis as unknown as {
@@ -20,3 +26,4 @@ if (process.env.NODE_ENV !== 'production' && prisma) {
 }
 
 export default prisma
+

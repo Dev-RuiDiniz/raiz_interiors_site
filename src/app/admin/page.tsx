@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/admin/page.tsx
+Objetivo: Arquivo de codigo da aplicacao.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { motion } from 'framer-motion'
@@ -338,3 +344,4 @@ export default function AdminDashboard() {
     </div>
   )
 }
+

@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/admin/projects/page.tsx
+Objetivo: Pagina do painel administrativo.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { useState } from 'react'
@@ -342,3 +348,4 @@ export default function ProjectsPage() {
     </div>
   )
 }
+

@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/sections/services-preview.tsx
+Objetivo: Secao de interface usada em paginas publicas.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import Link from 'next/link'
@@ -96,3 +102,4 @@ const services = [
   { title: 'Consultancy', slug: 'consultancy' },
   { title: 'Staging', slug: 'staging' },
 ]
+

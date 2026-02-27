@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/admin/layout.tsx
+Objetivo: Layout compartilhado entre paginas da respectiva area.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -85,3 +91,4 @@ export default function AdminLayout({
     </div>
   )
 }
+

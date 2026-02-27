@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/sections/home-gallery.tsx
+Objetivo: Secao de interface usada em paginas publicas.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import Image from 'next/image'
@@ -39,3 +45,4 @@ export function HomeGallery() {
     </section>
   )
 }
+

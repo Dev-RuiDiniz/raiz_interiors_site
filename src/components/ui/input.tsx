@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/ui/input.tsx
+Objetivo: Componente de UI reutilizavel.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
@@ -19,3 +25,4 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
 }
 
 export { Input }
+

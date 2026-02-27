@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/sections/instagram-feed.tsx
+Objetivo: Secao de interface usada em paginas publicas.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
@@ -165,3 +171,4 @@ export function InstagramFeed() {
     </section>
   )
 }
+

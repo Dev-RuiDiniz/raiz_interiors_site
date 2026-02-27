@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/(site)/projects/page.tsx
+Objetivo: Pagina publica do site (rota App Router).
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import Image from 'next/image'
@@ -214,3 +220,4 @@ function ProjectCard({ project }: ProjectCardProps) {
     </Link>
   )
 }
+

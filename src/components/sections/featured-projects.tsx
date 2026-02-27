@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/sections/featured-projects.tsx
+Objetivo: Secao de interface usada em paginas publicas.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import Link from 'next/link'
@@ -125,3 +131,4 @@ function ProjectCard({ project }: { project: Project }) {
     </Link>
   )
 }
+

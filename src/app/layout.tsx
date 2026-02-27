@@ -1,3 +1,9 @@
+/*
+Arquivo: src/app/layout.tsx
+Objetivo: Layout compartilhado entre paginas da respectiva area.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import type { Metadata } from "next"
 import "./globals.css"
 import { cormorant, inter, playfair } from "@/lib/fonts"
@@ -41,3 +47,4 @@ export default function RootLayout({
     </html>
   )
 }
+

@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/ui/card.tsx
+Objetivo: Componente de UI reutilizavel.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
@@ -90,3 +96,4 @@ export {
   CardDescription,
   CardContent,
 }
+

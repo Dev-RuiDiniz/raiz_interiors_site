@@ -1,3 +1,9 @@
+/*
+Arquivo: src/lib/fonts.ts
+Objetivo: Funcoes utilitarias e integracoes compartilhadas.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import { Cormorant_Garamond, Inter, Playfair_Display } from 'next/font/google'
 import localFont from 'next/font/local'
 
@@ -24,3 +30,4 @@ export const playfair = Playfair_Display({
   variable: '--font-playfair',
   display: 'swap',
 })
+

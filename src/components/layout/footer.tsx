@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/layout/footer.tsx
+Objetivo: Componente estrutural de layout (ex.: header/footer).
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 'use client'
 
 import Link from 'next/link'
@@ -151,3 +157,4 @@ export function Footer() {
     </footer>
   )
 }
+

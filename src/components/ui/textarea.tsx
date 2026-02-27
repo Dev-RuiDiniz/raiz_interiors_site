@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/ui/textarea.tsx
+Objetivo: Componente de UI reutilizavel.
+Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a exportacao principal.
+*/
+
 import * as React from "react"
 
 import { cn } from "@/lib/utils"
@@ -16,3 +22,4 @@ function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
 }
 
 export { Textarea }
+

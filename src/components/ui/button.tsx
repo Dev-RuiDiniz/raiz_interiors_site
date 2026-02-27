@@ -1,3 +1,9 @@
+/*
+Arquivo: src/components/ui/button.tsx
+Objetivo: Componente de UI reutilizavel.
+Guia rapido: imports, variantes visuais e exportacao do componente.
+*/
+
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -58,3 +64,4 @@ function Button({
 }
 
 export { Button, buttonVariants }
+
