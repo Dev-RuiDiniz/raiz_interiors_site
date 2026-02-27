@@ -10,6 +10,16 @@ import { getInstagramPosts } from "@/lib/apify";
 // POST /api/instagram/sync - Sincronizar posts do Apify para o banco
 export async function POST() {
   try {
+    if (!process.env.APIFY_API_TOKEN) {
+      return NextResponse.json(
+        {
+          error:
+            "APIFY_API_TOKEN não configurada. Defina a variável de ambiente para habilitar sincronização do Instagram.",
+        },
+        { status: 503 }
+      );
+    }
+
     const { prisma } = await import("@/lib/prisma");
     if (!prisma) {
       return NextResponse.json(

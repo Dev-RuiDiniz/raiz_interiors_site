@@ -70,3 +70,21 @@ Ready for deployment on Vercel:
 
 Developed with care for RAIZ Interiors.
 # raiz_interiors_site
+## Environment Variables
+
+Use `.env.example` as base:
+
+```bash
+cp .env.example .env.local
+```
+
+Minimum required values:
+
+```env
+DATABASE_URL="postgresql://..."
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your-secret"
+APIFY_API_TOKEN="" # optional unless using /api/instagram/sync
+```
+
+Detailed setup and staging strategy: `doc/setup-staging.md`.

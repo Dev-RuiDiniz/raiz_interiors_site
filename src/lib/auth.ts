@@ -8,6 +8,14 @@ import { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import bcrypt from 'bcryptjs'
 
+const nextAuthSecret = process.env.NEXTAUTH_SECRET
+
+if (!nextAuthSecret) {
+  console.warn(
+    'NEXTAUTH_SECRET not configured. Using fallback secret (configure this in staging/production).'
+  )
+}
+
 // Usuário admin temporário (depois migrar para banco de dados)
 const ADMIN_USER = {
   id: '1',
@@ -68,6 +76,6 @@ export const authOptions: NextAuthOptions = {
       return session
     },
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: nextAuthSecret || 'dev-only-nextauth-secret',
 }
 

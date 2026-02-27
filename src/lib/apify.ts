@@ -9,6 +9,14 @@ Guia rapido: consulte imports no topo, depois tipos/constantes, e por fim a expo
 const APIFY_API_TOKEN = process.env.APIFY_API_TOKEN;
 const APIFY_BASE_URL = "https://api.apify.com/v2";
 
+const hasApifyToken = () => {
+  if (!APIFY_API_TOKEN) {
+    console.warn("APIFY_API_TOKEN not configured - Instagram sync disabled.");
+    return false;
+  }
+  return true;
+};
+
 export interface ApifyInstagramPost {
   id: string;
   type: "Image" | "Video" | "Sidecar";
@@ -50,6 +58,10 @@ export interface ApifyRunResult {
 
 // Buscar o último run do actor
 export async function getLastRun(actorId: string = "apify~instagram-scraper"): Promise<ApifyRunResult | null> {
+  if (!hasApifyToken()) {
+    return null;
+  }
+
   try {
     const response = await fetch(
       `${APIFY_BASE_URL}/acts/${actorId}/runs?token=${APIFY_API_TOKEN}&limit=1&desc=true`,
@@ -71,6 +83,10 @@ export async function getLastRun(actorId: string = "apify~instagram-scraper"): P
 
 // Buscar posts do dataset
 export async function getDatasetItems(datasetId: string): Promise<ApifyInstagramPost[]> {
+  if (!hasApifyToken()) {
+    return [];
+  }
+
   try {
     const response = await fetch(
       `${APIFY_BASE_URL}/datasets/${datasetId}/items?token=${APIFY_API_TOKEN}&format=json`,
@@ -111,6 +127,10 @@ export async function startInstagramScrape(
   username: string = "raiz.interiors.living",
   resultsLimit: number = 12
 ): Promise<ApifyRunResult | null> {
+  if (!hasApifyToken()) {
+    return null;
+  }
+
   try {
     const response = await fetch(
       `${APIFY_BASE_URL}/acts/apify%7Einstagram-scraper/runs?token=${APIFY_API_TOKEN}`,
@@ -144,6 +164,10 @@ export async function startInstagramScrape(
 
 // Verificar status do run
 export async function getRunStatus(runId: string): Promise<ApifyRunResult | null> {
+  if (!hasApifyToken()) {
+    return null;
+  }
+
   try {
     const response = await fetch(
       `${APIFY_BASE_URL}/actor-runs/${runId}?token=${APIFY_API_TOKEN}`,
